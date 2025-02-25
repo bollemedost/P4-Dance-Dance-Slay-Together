@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArrowScrollerAioli : MonoBehaviour
 {
-    public float beatTempo;
+    public float beatTempo; //Set in inspector; has to be set to the same tempo as the music 
     public bool hasStarted;
     void Start()
     {
@@ -15,10 +15,10 @@ public class ArrowScrollerAioli : MonoBehaviour
     {
         if(!hasStarted) //if game has not started
         {
-            if(Input.anyKeyDown) 
+            /*if(Input.anyKeyDown) 
             {
                 hasStarted = true; //start game if any key is pressed
-            }
+            }*/
         }
         else
         {
@@ -28,4 +28,4 @@ public class ArrowScrollerAioli : MonoBehaviour
 }
 
 
-//References: Used https://www.youtube.com/watch?v=cZzf1FQQFA0 as a reference for the code.
+//References: Used https://www.youtube.com/@gamesplusjames as a reference for the code.

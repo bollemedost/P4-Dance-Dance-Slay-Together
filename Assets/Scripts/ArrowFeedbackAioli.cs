@@ -14,7 +14,6 @@ public class ArrowFeedbackAioli : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(keyToPress))
@@ -29,4 +28,4 @@ public class ArrowFeedbackAioli : MonoBehaviour
 }
 
 
-//References: Used https://www.youtube.com/watch?v=cZzf1FQQFA0 as a reference for the code.
+//References: Used https://www.youtube.com/@gamesplusjames as a reference for the code.
