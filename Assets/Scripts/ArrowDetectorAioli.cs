@@ -27,23 +27,22 @@ public class ArrowDetectorAioli : MonoBehaviour
                 {
                     Debug.Log("Hit");
                     GameManager.instance.NormalHit();
-                    spawnedText = Instantiate(normalHitText, transform.position, normalHitText.transform.rotation);
-                    Destroy(spawnedText, delayTime);
+                    spawnedText = Instantiate(normalHitText, transform.position, Quaternion.identity, transform); // Attach to arrow
                 }
                 else if (Mathf.Abs(transform.position.y) > goodHitThreshold)
                 {
                     Debug.Log("Good Hit");
                     GameManager.instance.GoodHit();
-                    spawnedText = Instantiate(goodHitText, transform.position, goodHitText.transform.rotation);
-                    Destroy(spawnedText, delayTime);
+                    spawnedText = Instantiate(goodHitText, transform.position, Quaternion.identity, transform); // Attach to arrow
                 }
                 else
                 {
                     Debug.Log("Perfect Hit");
                     GameManager.instance.PerfectHit();
-                    spawnedText = Instantiate(perfectHitText, transform.position, perfectHitText.transform.rotation);
-                    Destroy(spawnedText, delayTime);
+                    spawnedText = Instantiate(perfectHitText, transform.position, Quaternion.identity, transform); // Attach to arrow
                 }
+
+                Destroy(spawnedText, delayTime);
             }
         }
     }
@@ -65,11 +64,25 @@ public class ArrowDetectorAioli : MonoBehaviour
             // Pass THIS arrow to NoteMissed so only it gets destroyed
             GameManager.instance.NoteMissed(gameObject);
 
-            spawnedText = Instantiate(missText, transform.position, missText.transform.rotation);
+            spawnedText = Instantiate(missText, transform.position, Quaternion.identity, transform); // Attach to arrow
             Destroy(spawnedText, delayTime);
         }
     }
+
+    private void OnDestroy()
+    {
+        if (spawnedText != null)
+        {
+            Destroy(spawnedText); // Cleanup when arrow is destroyed
+        }
+    }
 }
+
+
+
+
+
+
 
 
 //References: Used https://www.youtube.com/@gamesplusjames as a reference for the code.
