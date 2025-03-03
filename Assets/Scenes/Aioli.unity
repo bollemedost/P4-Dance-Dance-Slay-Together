@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 198044680}
   - component: {fileID: 198044679}
   m_Layer: 0
-  m_Name: Moving Arrow Left
+  m_Name: Moving Arrow Left 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -662,6 +662,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 276
+  normalHitThreshold: 0.25
+  goodHitThreshold: 0.15
+  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
+  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
+  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
+  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  delayTime: 1
 --- !u!1 &377256786
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,7 +682,7 @@ GameObject:
   - component: {fileID: 377256790}
   - component: {fileID: 377256789}
   m_Layer: 0
-  m_Name: Moving Arrow Up
+  m_Name: Moving Arrow Up 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -807,6 +814,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 273
+  normalHitThreshold: 0.25
+  goodHitThreshold: 0.15
+  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
+  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
+  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
+  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  delayTime: 1
 --- !u!1 &446584296
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +891,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Multiflier: '
 --- !u!222 &446584299
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1073,7 +1087,7 @@ GameObject:
   - component: {fileID: 585096132}
   - component: {fileID: 585096131}
   m_Layer: 0
-  m_Name: Moving Arrow Right
+  m_Name: Moving Arrow Right 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1205,6 +1219,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 275
+  normalHitThreshold: 0.25
+  goodHitThreshold: 0.15
+  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
+  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
+  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
+  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  delayTime: 1
 --- !u!1 &739717195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1239,7 @@ GameObject:
   - component: {fileID: 739717198}
   - component: {fileID: 739717197}
   m_Layer: 0
-  m_Name: Moving Arrow Right (1)
+  m_Name: Moving Arrow Right 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1298,6 +1319,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 275
+  normalHitThreshold: 0.25
+  goodHitThreshold: 0.15
+  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
+  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
+  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
+  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  delayTime: 1
 --- !u!212 &739717199
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1431,7 +1459,7 @@ GameObject:
   - component: {fileID: 801420505}
   - component: {fileID: 801420504}
   m_Layer: 0
-  m_Name: Moving Arrow Left (2)
+  m_Name: Moving Arrow Left 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1511,6 +1539,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 276
+  normalHitThreshold: 0.25
+  goodHitThreshold: 0.15
+  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
+  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
+  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
+  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  delayTime: 1
 --- !u!212 &801420506
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1750,7 +1785,7 @@ GameObject:
   - component: {fileID: 877337831}
   - component: {fileID: 877337830}
   m_Layer: 0
-  m_Name: Moving Arrow Right (2)
+  m_Name: Moving Arrow Right 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1830,6 +1865,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 275
+  normalHitThreshold: 0.25
+  goodHitThreshold: 0.15
+  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
+  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
+  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
+  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  delayTime: 1
 --- !u!212 &877337832
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1882,6 +1924,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &925998659 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3137368929032630890, guid: d95a4aa8f7f7e48108788997b6f7ed15, type: 3}
+  m_PrefabInstance: {fileID: 7813457438353419516}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &983333072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,7 +2021,7 @@ GameObject:
   - component: {fileID: 1001464096}
   - component: {fileID: 1001464095}
   m_Layer: 0
-  m_Name: Moving Arrow Down (2)
+  m_Name: Moving Arrow Down 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2054,6 +2101,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 274
+  normalHitThreshold: 0.25
+  goodHitThreshold: 0.15
+  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
+  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
+  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
+  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  delayTime: 1
 --- !u!212 &1001464097
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2265,6 +2319,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!4 &1143050729 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5299562084708516897, guid: 98150f3bcbce148a780fe22682353610, type: 3}
+  m_PrefabInstance: {fileID: 8595304465045544645}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1197984150
 GameObject:
   m_ObjectHideFlags: 0
@@ -2313,7 +2372,7 @@ GameObject:
   - component: {fileID: 1340985779}
   - component: {fileID: 1340985778}
   m_Layer: 0
-  m_Name: Moving Arrow Down (1)
+  m_Name: Moving Arrow Down 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2393,6 +2452,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 274
+  normalHitThreshold: 0.25
+  goodHitThreshold: 0.15
+  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
+  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
+  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
+  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  delayTime: 1
 --- !u!212 &1340985780
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2458,7 +2524,7 @@ GameObject:
   - component: {fileID: 1344543771}
   - component: {fileID: 1344543770}
   m_Layer: 0
-  m_Name: Moving Arrow Left (1)
+  m_Name: Moving Arrow Left 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2538,6 +2604,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 276
+  normalHitThreshold: 0.25
+  goodHitThreshold: 0.15
+  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
+  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
+  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
+  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  delayTime: 1
 --- !u!212 &1344543772
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2590,6 +2663,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1627362035 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1433537444830730008, guid: 39f839ff1909e4d00954de173cf5353b, type: 3}
+  m_PrefabInstance: {fileID: 5257009808352409633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1641187930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2603,7 +2681,7 @@ GameObject:
   - component: {fileID: 1641187933}
   - component: {fileID: 1641187932}
   m_Layer: 0
-  m_Name: Moving Arrow Up (1)
+  m_Name: Moving Arrow Up 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2683,6 +2761,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 273
+  normalHitThreshold: 0.25
+  goodHitThreshold: 0.15
+  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
+  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
+  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
+  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  delayTime: 1
 --- !u!212 &1641187934
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2748,7 +2833,7 @@ GameObject:
   - component: {fileID: 1849072145}
   - component: {fileID: 1849072144}
   m_Layer: 0
-  m_Name: Moving Arrow Down
+  m_Name: Moving Arrow Down 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2880,6 +2965,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 274
+  normalHitThreshold: 0.25
+  goodHitThreshold: 0.15
+  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
+  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
+  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
+  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  delayTime: 1
+--- !u!4 &1948656920 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 982616658684354742, guid: 545007bbbe99d4039b1235a5a5f1c59d, type: 3}
+  m_PrefabInstance: {fileID: 6401663448016685701}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2027239493
 GameObject:
   m_ObjectHideFlags: 0
@@ -3067,7 +3164,7 @@ GameObject:
   - component: {fileID: 2102346348}
   - component: {fileID: 2102346347}
   m_Layer: 0
-  m_Name: Moving Arrow Up (2)
+  m_Name: Moving Arrow Up 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3147,6 +3244,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 273
+  normalHitThreshold: 0.25
+  goodHitThreshold: 0.15
+  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
+  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
+  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
+  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  delayTime: 1
 --- !u!212 &2102346349
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3241,6 +3345,10 @@ Transform:
   - {fileID: 2102346346}
   - {fileID: 877337829}
   - {fileID: 1001464094}
+  - {fileID: 1948656920}
+  - {fileID: 1627362035}
+  - {fileID: 1143050729}
+  - {fileID: 925998659}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2118907756
@@ -3257,6 +3365,234 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatTempo: 100
   hasStarted: 0
+--- !u!1001 &5257009808352409633
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2118907755}
+    m_Modifications:
+    - target: {fileID: 1433537444830730008, guid: 39f839ff1909e4d00954de173cf5353b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433537444830730008, guid: 39f839ff1909e4d00954de173cf5353b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433537444830730008, guid: 39f839ff1909e4d00954de173cf5353b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433537444830730008, guid: 39f839ff1909e4d00954de173cf5353b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433537444830730008, guid: 39f839ff1909e4d00954de173cf5353b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433537444830730008, guid: 39f839ff1909e4d00954de173cf5353b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433537444830730008, guid: 39f839ff1909e4d00954de173cf5353b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433537444830730008, guid: 39f839ff1909e4d00954de173cf5353b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433537444830730008, guid: 39f839ff1909e4d00954de173cf5353b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433537444830730008, guid: 39f839ff1909e4d00954de173cf5353b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5067480998108271555, guid: 39f839ff1909e4d00954de173cf5353b, type: 3}
+      propertyPath: m_Name
+      value: Moving Arrow Up
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 39f839ff1909e4d00954de173cf5353b, type: 3}
+--- !u!1001 &6401663448016685701
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2118907755}
+    m_Modifications:
+    - target: {fileID: 982616658684354742, guid: 545007bbbe99d4039b1235a5a5f1c59d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 982616658684354742, guid: 545007bbbe99d4039b1235a5a5f1c59d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 982616658684354742, guid: 545007bbbe99d4039b1235a5a5f1c59d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 982616658684354742, guid: 545007bbbe99d4039b1235a5a5f1c59d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 982616658684354742, guid: 545007bbbe99d4039b1235a5a5f1c59d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 982616658684354742, guid: 545007bbbe99d4039b1235a5a5f1c59d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 982616658684354742, guid: 545007bbbe99d4039b1235a5a5f1c59d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 982616658684354742, guid: 545007bbbe99d4039b1235a5a5f1c59d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 982616658684354742, guid: 545007bbbe99d4039b1235a5a5f1c59d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 982616658684354742, guid: 545007bbbe99d4039b1235a5a5f1c59d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4752785293078210306, guid: 545007bbbe99d4039b1235a5a5f1c59d, type: 3}
+      propertyPath: m_Name
+      value: Moving Arrow Left
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 545007bbbe99d4039b1235a5a5f1c59d, type: 3}
+--- !u!1001 &7813457438353419516
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2118907755}
+    m_Modifications:
+    - target: {fileID: 3137368929032630890, guid: d95a4aa8f7f7e48108788997b6f7ed15, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137368929032630890, guid: d95a4aa8f7f7e48108788997b6f7ed15, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137368929032630890, guid: d95a4aa8f7f7e48108788997b6f7ed15, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137368929032630890, guid: d95a4aa8f7f7e48108788997b6f7ed15, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137368929032630890, guid: d95a4aa8f7f7e48108788997b6f7ed15, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137368929032630890, guid: d95a4aa8f7f7e48108788997b6f7ed15, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137368929032630890, guid: d95a4aa8f7f7e48108788997b6f7ed15, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137368929032630890, guid: d95a4aa8f7f7e48108788997b6f7ed15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137368929032630890, guid: d95a4aa8f7f7e48108788997b6f7ed15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137368929032630890, guid: d95a4aa8f7f7e48108788997b6f7ed15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482495906937982864, guid: d95a4aa8f7f7e48108788997b6f7ed15, type: 3}
+      propertyPath: m_Name
+      value: Moving Arrow Down
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d95a4aa8f7f7e48108788997b6f7ed15, type: 3}
+--- !u!1001 &8595304465045544645
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2118907755}
+    m_Modifications:
+    - target: {fileID: 5299562084708516897, guid: 98150f3bcbce148a780fe22682353610, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299562084708516897, guid: 98150f3bcbce148a780fe22682353610, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.6599998
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299562084708516897, guid: 98150f3bcbce148a780fe22682353610, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299562084708516897, guid: 98150f3bcbce148a780fe22682353610, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299562084708516897, guid: 98150f3bcbce148a780fe22682353610, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299562084708516897, guid: 98150f3bcbce148a780fe22682353610, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299562084708516897, guid: 98150f3bcbce148a780fe22682353610, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299562084708516897, guid: 98150f3bcbce148a780fe22682353610, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299562084708516897, guid: 98150f3bcbce148a780fe22682353610, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299562084708516897, guid: 98150f3bcbce148a780fe22682353610, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113302826005036371, guid: 98150f3bcbce148a780fe22682353610, type: 3}
+      propertyPath: m_Name
+      value: Moving Arrow Right
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 98150f3bcbce148a780fe22682353610, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
