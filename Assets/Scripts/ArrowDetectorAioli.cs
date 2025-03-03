@@ -21,28 +21,31 @@ public class ArrowDetectorAioli : MonoBehaviour
         {
             if (canBePressed)
             {
-                gameObject.SetActive(false); // Destroy arrow if pressed 
+                gameObject.SetActive(false); // Remove arrow when pressed
 
                 if (Mathf.Abs(transform.position.y) > normalHitThreshold)
                 {
                     Debug.Log("Hit");
                     GameManager.instance.NormalHit();
-                    spawnedText = Instantiate(normalHitText, transform.position, Quaternion.identity, transform); // Attach to arrow
+                    spawnedText = Instantiate(normalHitText, transform.position, Quaternion.identity);
                 }
                 else if (Mathf.Abs(transform.position.y) > goodHitThreshold)
                 {
                     Debug.Log("Good Hit");
                     GameManager.instance.GoodHit();
-                    spawnedText = Instantiate(goodHitText, transform.position, Quaternion.identity, transform); // Attach to arrow
+                    spawnedText = Instantiate(goodHitText, transform.position, Quaternion.identity);
                 }
                 else
                 {
                     Debug.Log("Perfect Hit");
                     GameManager.instance.PerfectHit();
-                    spawnedText = Instantiate(perfectHitText, transform.position, Quaternion.identity, transform); // Attach to arrow
+                    spawnedText = Instantiate(perfectHitText, transform.position, Quaternion.identity);
                 }
 
-                Destroy(spawnedText, delayTime);
+                if (spawnedText != null)
+                {
+                    Destroy(spawnedText, delayTime);
+                }
             }
         }
     }
@@ -64,25 +67,11 @@ public class ArrowDetectorAioli : MonoBehaviour
             // Pass THIS arrow to NoteMissed so only it gets destroyed
             GameManager.instance.NoteMissed(gameObject);
 
-            spawnedText = Instantiate(missText, transform.position, Quaternion.identity, transform); // Attach to arrow
-            Destroy(spawnedText, delayTime);
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (spawnedText != null)
-        {
-            Destroy(spawnedText); // Cleanup when arrow is destroyed
+            spawnedText = Instantiate(missText, transform.position, Quaternion.identity);
+            if (spawnedText != null)
+            {
+                Destroy(spawnedText, delayTime);
+            }
         }
     }
 }
-
-
-
-
-
-
-
-
-//References: Used https://www.youtube.com/@gamesplusjames as a reference for the code.
