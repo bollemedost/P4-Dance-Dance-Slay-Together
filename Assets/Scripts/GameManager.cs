@@ -126,7 +126,8 @@ public class GameManager : MonoBehaviour
         NoteHit();
     }
 
-    public void NoteMissed()
+    // 🔹 Updated NoteMissed to only remove the missed arrow
+    public void NoteMissed(GameObject missedArrow)
     {
         Debug.Log("❌ Missed Note - Resetting Multiplier");
 
@@ -134,11 +135,10 @@ public class GameManager : MonoBehaviour
         multiplierTracker = 0;
         multiplierText.text = "Multiplier: x" + currentMultiplier;
 
-        // 🔹 Destroy all arrows tagged as "FallingArrow" to clean up
-        GameObject[] missedArrows = GameObject.FindGameObjectsWithTag("FallingArrow");
-        foreach (GameObject arrow in missedArrows)
+        // Only destroy the specific arrow that was missed
+        if (missedArrow != null)
         {
-            Destroy(arrow);
+            Destroy(missedArrow);
         }
     }
 }
