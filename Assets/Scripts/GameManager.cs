@@ -23,10 +23,10 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text multiplierText;
 
-    // 🔹 Added Fields for Beat Sync and Spawning
     public BeatLoader beatLoader;
     public ArrowSpawner arrowSpawner;
     private int nextBeatIndex = 0;
+    private float delayTime = 5.5f; // Delay before music starts
 
     void Start()
     {
@@ -54,10 +54,22 @@ public class GameManager : MonoBehaviour
             {
                 startPlaying = true;
                 theArrowScroller.hasStarted = true;
-                theMusic.Play();
+
+                // Start arrows immediately
                 StartCoroutine(SpawnArrowsOnBeat());
+
+                // Delay the music
+                StartCoroutine(StartMusicWithDelay());
             }
         }
+    }
+
+    IEnumerator StartMusicWithDelay()
+    {
+        Debug.Log($"🎵 Waiting {delayTime} seconds before starting the music...");
+        yield return new WaitForSeconds(delayTime);
+
+        theMusic.Play();
     }
 
     IEnumerator SpawnArrowsOnBeat()
@@ -74,7 +86,7 @@ public class GameManager : MonoBehaviour
         {
             float beatTime = beatTimes[nextBeatIndex] - GetTravelTime();
 
-            while (theMusic.time < beatTime)
+            while (Time.timeSinceLevelLoad < beatTime)
             {
                 yield return null;
             }
@@ -126,7 +138,6 @@ public class GameManager : MonoBehaviour
         NoteHit();
     }
 
-    // 🔹 Updated NoteMissed to only remove the missed arrow
     public void NoteMissed(GameObject missedArrow)
     {
         Debug.Log("❌ Missed Note - Resetting Multiplier");
@@ -135,7 +146,6 @@ public class GameManager : MonoBehaviour
         multiplierTracker = 0;
         multiplierText.text = "Multiplier: x" + currentMultiplier;
 
-        // Only destroy the specific arrow that was missed
         if (missedArrow != null)
         {
             Destroy(missedArrow);
