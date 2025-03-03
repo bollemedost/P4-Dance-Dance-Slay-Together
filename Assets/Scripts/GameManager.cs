@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,9 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public AudioSource theMusic;
     public bool startPlaying;
-    public ArrowScrollerAioli theArrowScroller; 
+    public ArrowScrollerAioli theArrowScroller;
 
-    public static GameManager instance; //reference to GameManager; static because there should only be one GameManager
+    public static GameManager instance; // Singleton pattern
 
     public int currentScore;
     public int scorePerNote = 100;
@@ -23,75 +23,122 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text multiplierText;
 
+    // 🔹 Added Fields for Beat Sync and Spawning
+    public BeatLoader beatLoader;
+    public ArrowSpawner arrowSpawner;
+    private int nextBeatIndex = 0;
+
     void Start()
     {
-        instance = this; //set instance to this GameManager
+        instance = this;
 
-        scoreText.text = "Score: 0"; //sets score to 0 at beginning of game
-        currentMultiplier = 1; //set multiplier to 1 at beginning of game
-        multiplierText.text = "Multiplier: x" + currentMultiplier; //updates current multiplier
+        scoreText.text = "Score: 0";
+        currentMultiplier = 1;
+        multiplierText.text = "Multiplier: x" + currentMultiplier;
+
+        if (beatLoader == null)
+        {
+            Debug.LogError("❌ BeatLoader is not assigned in GameManager!");
+        }
+        if (arrowSpawner == null)
+        {
+            Debug.LogError("❌ ArrowSpawner is not assigned in GameManager!");
+        }
     }
-   
+
     void Update()
     {
-        if(!startPlaying)
+        if (!startPlaying)
         {
-            if(Input.anyKeyDown)
+            if (Input.anyKeyDown)
             {
                 startPlaying = true;
                 theArrowScroller.hasStarted = true;
                 theMusic.Play();
+                StartCoroutine(SpawnArrowsOnBeat());
             }
         }
+    }
+
+    IEnumerator SpawnArrowsOnBeat()
+    {
+        if (beatLoader == null || arrowSpawner == null)
+        {
+            Debug.LogError("❌ BeatLoader or ArrowSpawner is missing!");
+            yield break;
+        }
+
+        List<float> beatTimes = beatLoader.GetBeatTimings();
+
+        while (nextBeatIndex < beatTimes.Count)
+        {
+            float beatTime = beatTimes[nextBeatIndex] - GetTravelTime();
+
+            while (theMusic.time < beatTime)
+            {
+                yield return null;
+            }
+
+            arrowSpawner.SpawnArrow();
+            nextBeatIndex++;
+        }
+    }
+
+    float GetTravelTime()
+    {
+        return 1.5f;
     }
 
     public void NoteHit()
     {
         Debug.Log("Hit On Time");
 
-        if(currentMultiplier - 1 < multiplierThresholds.Length) //if the current multiplier is less than the length of the multiplier thresholds
+        if (currentMultiplier - 1 < multiplierThresholds.Length)
         {
-            multiplierTracker++; //add 1 to multiplier tracker
+            multiplierTracker++;
 
-            if(multiplierThresholds[currentMultiplier - 1] <= multiplierTracker) //if the current multiplier is less than or equal to the multiplier tracker
+            if (multiplierThresholds[currentMultiplier - 1] <= multiplierTracker)
             {
-                multiplierTracker = 0; //reset multiplier tracker
-                currentMultiplier++; //add 1 to current multiplier
+                multiplierTracker = 0;
+                currentMultiplier++;
             }
         }
 
-        scoreText.text = "Score: " + currentScore; //updates current score
-        
-        multiplierText.text = "Multiplier: x" + currentMultiplier; //updates multiplier text
+        scoreText.text = "Score: " + currentScore;
+        multiplierText.text = "Multiplier: x" + currentMultiplier;
     }
 
     public void NormalHit()
     {
-        currentScore += scorePerNote * currentMultiplier; //add score to current multiplier
+        currentScore += scorePerNote * currentMultiplier;
         NoteHit();
     }
 
     public void GoodHit()
     {
-        currentScore += scorePerGoodNote * currentMultiplier; //add score to current multiplier
+        currentScore += scorePerGoodNote * currentMultiplier;
         NoteHit();
-    } 
+    }
 
     public void PerfectHit()
     {
-        currentScore += scorePerPerfectNote * currentMultiplier; //add score to current multiplier
-        NoteHit(); 
+        currentScore += scorePerPerfectNote * currentMultiplier;
+        NoteHit();
     }
 
     public void NoteMissed()
     {
-        Debug.Log("Missed Note");
+        Debug.Log("❌ Missed Note - Resetting Multiplier");
 
-        currentMultiplier = 1; //reset multiplier to 1
-        multiplierTracker = 0; //reset multiplier tracker
-        multiplierText.text = "Multiplier: x" + currentMultiplier; //updates multiplier text
+        currentMultiplier = 1;
+        multiplierTracker = 0;
+        multiplierText.text = "Multiplier: x" + currentMultiplier;
+
+        // 🔹 Destroy all arrows tagged as "FallingArrow" to clean up
+        GameObject[] missedArrows = GameObject.FindGameObjectsWithTag("FallingArrow");
+        foreach (GameObject arrow in missedArrows)
+        {
+            Destroy(arrow);
+        }
     }
-
 }
-
-// References: Used https://www.youtube.com/@gamesplusjames as a reference for the code. 
