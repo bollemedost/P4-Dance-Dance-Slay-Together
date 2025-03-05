@@ -1,0 +1,94 @@
+{
+    "name": "DDRInput",
+    "maps": [
+        {
+            "name": "DDR",
+            "id": "9c0901f4-d08e-40a5-b930-f46e550f4caf",
+            "actions": [
+                {
+                    "name": "Up",
+                    "type": "Button",
+                    "id": "674745e8-0a3b-4e98-abb2-b9ddc1d6457f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Down",
+                    "type": "Button",
+                    "id": "077099af-c4d4-4eb6-b498-5d99feeb0ce1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Left",
+                    "type": "Button",
+                    "id": "5746ddf3-a69d-49fb-87dd-93defea17911",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Right",
+                    "type": "Button",
+                    "id": "1016ba8e-4de9-4239-a92e-eccf262a1c17",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3d8d2276-8dee-4f1d-a8b7-b2e60effce7f",
+                    "path": "<HID::ga451-usb device>/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "df38254e-a3bb-44ec-8392-d980194daada",
+                    "path": "<HID::ga451-usb device>/button2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b06acc9-f220-4841-8236-ee0ba20638e1",
+                    "path": "<HID::ga451-usb device>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "57d87c0e-d4ce-4959-a58e-425c8f934c88",
+                    "path": "<HID::ga451-usb device>/button4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

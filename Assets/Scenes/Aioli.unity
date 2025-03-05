@@ -378,6 +378,7 @@ MonoBehaviour:
   defaultSprite: {fileID: 21300000, guid: 4d965ad2a0a324b659f3987801efe10c, type: 3}
   pressedSprite: {fileID: 21300000, guid: c3d412264692f4d98b83bccce31ca422, type: 3}
   keyToPress: 274
+  ddrActionName: Down
 --- !u!212 &166218509
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -709,10 +710,10 @@ MonoBehaviour:
   keyToPress: 276
   normalHitThreshold: 0.25
   goodHitThreshold: 0.15
-  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
-  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
-  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
-  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  normalHitText: {fileID: 0}
+  goodHitText: {fileID: 0}
+  perfectHitText: {fileID: 0}
+  missText: {fileID: 0}
   delayTime: 1
 --- !u!1 &377256786
 GameObject:
@@ -861,10 +862,10 @@ MonoBehaviour:
   keyToPress: 273
   normalHitThreshold: 0.25
   goodHitThreshold: 0.15
-  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
-  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
-  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
-  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  normalHitText: {fileID: 0}
+  goodHitText: {fileID: 0}
+  perfectHitText: {fileID: 0}
+  missText: {fileID: 0}
   delayTime: 1
 --- !u!1 &446584296
 GameObject:
@@ -1011,6 +1012,7 @@ MonoBehaviour:
   defaultSprite: {fileID: 21300000, guid: 456733c2802ba48ec906ec062b800871, type: 3}
   pressedSprite: {fileID: 21300000, guid: a9193c747e25448c4b5ca55a7402c0f5, type: 3}
   keyToPress: 275
+  ddrActionName: Right
 --- !u!212 &471486448
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1297,10 +1299,10 @@ MonoBehaviour:
   keyToPress: 275
   normalHitThreshold: 0.25
   goodHitThreshold: 0.15
-  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
-  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
-  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
-  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  normalHitText: {fileID: 0}
+  goodHitText: {fileID: 0}
+  perfectHitText: {fileID: 0}
+  missText: {fileID: 0}
   delayTime: 1
 --- !u!1 &739717195
 GameObject:
@@ -1397,10 +1399,10 @@ MonoBehaviour:
   keyToPress: 275
   normalHitThreshold: 0.25
   goodHitThreshold: 0.15
-  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
-  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
-  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
-  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  normalHitText: {fileID: 0}
+  goodHitText: {fileID: 0}
+  perfectHitText: {fileID: 0}
+  missText: {fileID: 0}
   delayTime: 1
 --- !u!212 &739717199
 SpriteRenderer:
@@ -1617,10 +1619,10 @@ MonoBehaviour:
   keyToPress: 276
   normalHitThreshold: 0.25
   goodHitThreshold: 0.15
-  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
-  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
-  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
-  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  normalHitText: {fileID: 0}
+  goodHitText: {fileID: 0}
+  perfectHitText: {fileID: 0}
+  missText: {fileID: 0}
   delayTime: 1
 --- !u!212 &801420506
 SpriteRenderer:
@@ -1709,6 +1711,7 @@ MonoBehaviour:
   defaultSprite: {fileID: 21300000, guid: 0245c5cf1dc634a7cba870a6288405fc, type: 3}
   pressedSprite: {fileID: 21300000, guid: 1489f3c9582884f23a9cf793597fda8a, type: 3}
   keyToPress: 276
+  ddrActionName: Left
 --- !u!212 &834105777
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1943,10 +1946,10 @@ MonoBehaviour:
   keyToPress: 275
   normalHitThreshold: 0.25
   goodHitThreshold: 0.15
-  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
-  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
-  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
-  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  normalHitText: {fileID: 0}
+  goodHitText: {fileID: 0}
+  perfectHitText: {fileID: 0}
+  missText: {fileID: 0}
   delayTime: 1
 --- !u!212 &877337832
 SpriteRenderer:
@@ -2210,10 +2213,10 @@ MonoBehaviour:
   keyToPress: 274
   normalHitThreshold: 0.25
   goodHitThreshold: 0.15
-  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
-  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
-  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
-  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  normalHitText: {fileID: 0}
+  goodHitText: {fileID: 0}
+  perfectHitText: {fileID: 0}
+  missText: {fileID: 0}
   delayTime: 1
 --- !u!212 &1001464097
 SpriteRenderer:
@@ -2563,10 +2566,10 @@ MonoBehaviour:
   keyToPress: 274
   normalHitThreshold: 0.25
   goodHitThreshold: 0.15
-  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
-  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
-  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
-  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  normalHitText: {fileID: 0}
+  goodHitText: {fileID: 0}
+  perfectHitText: {fileID: 0}
+  missText: {fileID: 0}
   delayTime: 1
 --- !u!212 &1340985780
 SpriteRenderer:
@@ -2715,10 +2718,10 @@ MonoBehaviour:
   keyToPress: 276
   normalHitThreshold: 0.25
   goodHitThreshold: 0.15
-  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
-  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
-  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
-  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  normalHitText: {fileID: 0}
+  goodHitText: {fileID: 0}
+  perfectHitText: {fileID: 0}
+  missText: {fileID: 0}
   delayTime: 1
 --- !u!212 &1344543772
 SpriteRenderer:
@@ -2934,10 +2937,10 @@ MonoBehaviour:
   keyToPress: 273
   normalHitThreshold: 0.25
   goodHitThreshold: 0.15
-  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
-  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
-  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
-  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  normalHitText: {fileID: 0}
+  goodHitText: {fileID: 0}
+  perfectHitText: {fileID: 0}
+  missText: {fileID: 0}
   delayTime: 1
 --- !u!212 &1641187934
 SpriteRenderer:
@@ -3194,10 +3197,10 @@ MonoBehaviour:
   keyToPress: 274
   normalHitThreshold: 0.25
   goodHitThreshold: 0.15
-  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
-  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
-  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
-  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  normalHitText: {fileID: 0}
+  goodHitText: {fileID: 0}
+  perfectHitText: {fileID: 0}
+  missText: {fileID: 0}
   delayTime: 1
 --- !u!4 &1948656920 stripped
 Transform:
@@ -3239,6 +3242,7 @@ MonoBehaviour:
   defaultSprite: {fileID: 21300000, guid: 85681551319ed446f88eca9b45c5b074, type: 3}
   pressedSprite: {fileID: 21300000, guid: 0b8cf1f256d234f59b84593d99e93f70, type: 3}
   keyToPress: 273
+  ddrActionName: Up
 --- !u!212 &2027239495
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3473,10 +3477,10 @@ MonoBehaviour:
   keyToPress: 273
   normalHitThreshold: 0.25
   goodHitThreshold: 0.15
-  normalHitText: {fileID: 3538994399806730616, guid: ac25ebbf4e67d4dc48657f4842437020, type: 3}
-  goodHitText: {fileID: 6439919205909080083, guid: de1e9a507156b4e8faf36f87d0ac0153, type: 3}
-  perfectHitText: {fileID: 2386236568295556986, guid: 1b239eb662fa64de9861ad44cfdd0eb7, type: 3}
-  missText: {fileID: 478129722282611337, guid: e030a01f642c649dda178dde90758c90, type: 3}
+  normalHitText: {fileID: 0}
+  goodHitText: {fileID: 0}
+  perfectHitText: {fileID: 0}
+  missText: {fileID: 0}
   delayTime: 1
 --- !u!212 &2102346349
 SpriteRenderer:
