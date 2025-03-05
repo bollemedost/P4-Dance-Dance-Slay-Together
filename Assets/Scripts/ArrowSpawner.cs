@@ -6,7 +6,7 @@ using System.IO;
 public class ArrowSpawner : MonoBehaviour
 {
     public GameObject[] arrowPrefabs; // Assign 4 arrow prefabs (Left, Down, Up, Right)
-    public Transform[] spawnPoints; // Assign 4 spawn points (one for each arrow type)
+    public Transform[] spawnPoints; // Assign 8 spawn points (one for each arrow type for each player)
     public TextAsset beatDataFile; // Drag & Drop Unwritten_beat_timings.json into Inspector
     public AudioSource music; // Assign MusicPlayer's AudioSource in Inspector
 
@@ -48,7 +48,7 @@ public class ArrowSpawner : MonoBehaviour
 
     IEnumerator SpawnArrows()
     {
-        if (arrowPrefabs.Length != 4 || spawnPoints.Length != 4)
+        if (arrowPrefabs.Length != 4 || spawnPoints.Length != 8)
         {
             Debug.LogError("❌ Ensure there are exactly 4 arrow prefabs and 4 spawn points assigned.");
             yield break;
@@ -64,14 +64,20 @@ public class ArrowSpawner : MonoBehaviour
 
     public void SpawnArrow()
     {
-        if (arrowPrefabs.Length != 4 || spawnPoints.Length != 4)
+        if (arrowPrefabs.Length != 4 || spawnPoints.Length != 8)
         {
             Debug.LogError("❌ Ensure there are exactly 4 arrow prefabs and 4 spawn points assigned.");
             return;
         }
 
         int arrowType = Random.Range(0, 4); // 0 = Left, 1 = Down, 2 = Up, 3 = Right
-        Transform spawnPoint = spawnPoints[arrowType]; // Get correct spawn position
+        int player = Random.Range(0, 2); // 0 = Player 1, 1 = Player 2
+
+         int spawnIndex = arrowType + (player * 4); // Offset for Player 2's spawn points
+
+        Transform spawnPoint = spawnPoints[spawnIndex]; // Get correct spawn position
+
+        //Transform spawnPoint = spawnPoints[arrowType]; // Get correct spawn position
 
         GameObject newArrow = Instantiate(arrowPrefabs[arrowType], spawnPoint.position, Quaternion.identity);
 
