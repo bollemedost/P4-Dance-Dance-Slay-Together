@@ -2794,7 +2794,13 @@ MonoBehaviour:
   scoreText: {fileID: 983333074}
   multiplierText: {fileID: 446584298}
   beatLoader: {fileID: 186321414}
-  arrowSpawner: {fileID: 1766405400}
+  arrowSpawner:
+  - {fileID: 1766405400}
+  - {fileID: 1778649032}
+  normalHits: 0
+  goodHits: 0
+  perfectHits: 0
+  missedNotes: 0
 --- !u!4 &1014417613
 Transform:
   m_ObjectHideFlags: 0
@@ -3841,7 +3847,7 @@ GameObject:
   - component: {fileID: 1766405401}
   - component: {fileID: 1766405400}
   m_Layer: 0
-  m_Name: ArrowSpawner
+  m_Name: ArrowSpawner P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3869,10 +3875,6 @@ MonoBehaviour:
   - {fileID: 994512339}
   - {fileID: 452683273}
   - {fileID: 1445708048}
-  - {fileID: 552099628}
-  - {fileID: 648903903}
-  - {fileID: 1785921522}
-  - {fileID: 609921217}
   beatDataFile: {fileID: 4900000, guid: 42ae7bc77563afc4ba59830e2ad3314e, type: 3}
   music: {fileID: 104299862}
 --- !u!4 &1766405401
@@ -3882,6 +3884,62 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766405399}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5708656, y: 6.67642, z: 0.023948185}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1778649031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1778649033}
+  - component: {fileID: 1778649032}
+  m_Layer: 0
+  m_Name: ArrowSpawner P2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1778649032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778649031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d97d981215867a448732d31c475d0f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefabs:
+  - {fileID: 4752785293078210306, guid: 545007bbbe99d4039b1235a5a5f1c59d, type: 3}
+  - {fileID: 4482495906937982864, guid: d95a4aa8f7f7e48108788997b6f7ed15, type: 3}
+  - {fileID: 5067480998108271555, guid: 39f839ff1909e4d00954de173cf5353b, type: 3}
+  - {fileID: 7113302826005036371, guid: 98150f3bcbce148a780fe22682353610, type: 3}
+  spawnPoints:
+  - {fileID: 552099628}
+  - {fileID: 648903903}
+  - {fileID: 1785921522}
+  - {fileID: 609921217}
+  beatDataFile: {fileID: 4900000, guid: 42ae7bc77563afc4ba59830e2ad3314e, type: 3}
+  music: {fileID: 104299862}
+--- !u!4 &1778649033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778649031}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5708656, y: 6.67642, z: 0.023948185}
@@ -4708,4 +4766,5 @@ SceneRoots:
   - {fileID: 752857531}
   - {fileID: 186321415}
   - {fileID: 1766405401}
+  - {fileID: 1778649033}
   - {fileID: 207701061}

@@ -24,9 +24,15 @@ public class GameManager : MonoBehaviour
     public Text multiplierText;
 
     public BeatLoader beatLoader;
-    public ArrowSpawner arrowSpawner;
+    public ArrowSpawner[] arrowSpawner;
     private int nextBeatIndex = 0;
     private float delayTime = 5.5f; // Delay before music starts
+
+    // Hit Tracking Variables
+    public int normalHits = 0;
+    public int goodHits = 0;
+    public int perfectHits = 0;
+    public int missedNotes = 0;
 
     void Start()
     {
@@ -91,7 +97,10 @@ public class GameManager : MonoBehaviour
                 yield return null;
             }
 
-            arrowSpawner.SpawnArrow();
+            foreach (ArrowSpawner spawner in arrowSpawner)
+            {
+                spawner.SpawnArrow();
+            }
             nextBeatIndex++;
         }
     }
@@ -123,18 +132,24 @@ public class GameManager : MonoBehaviour
     public void NormalHit()
     {
         currentScore += scorePerNote * currentMultiplier;
+        normalHits++; // Track normal hits
+        Debug.Log($"Normal Hit Count: {normalHits}");
         NoteHit();
     }
 
     public void GoodHit()
     {
         currentScore += scorePerGoodNote * currentMultiplier;
+        goodHits++; // Track good hits
+        Debug.Log($"Good Hit Count: {goodHits}");
         NoteHit();
     }
 
     public void PerfectHit()
     {
         currentScore += scorePerPerfectNote * currentMultiplier;
+        perfectHits++; // Track perfect hits
+        Debug.Log($"Perfect Hit Count: {perfectHits}");
         NoteHit();
     }
 
@@ -145,6 +160,9 @@ public class GameManager : MonoBehaviour
         currentMultiplier = 1;
         multiplierTracker = 0;
         multiplierText.text = "Multiplier: x" + currentMultiplier;
+
+        missedNotes++; // Track missed notes
+        Debug.Log($"Missed Note Count: {missedNotes}");
 
         if (missedArrow != null)
         {
