@@ -23,7 +23,7 @@ public class BeatLoader : MonoBehaviour
         }
         else
         {
-            Debug.LogError("❌ Beat file not assigned!");
+            Debug.LogError("Beat file not assigned!");
         }
     }
 

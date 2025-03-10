@@ -24,7 +24,7 @@ public class ArrowSpawner : MonoBehaviour
 
         if (!music.isPlaying)
         {
-            Debug.LogError("❌ Music is not playing! Make sure GameManager starts the song.");
+            Debug.LogError("Music is not playing! Make sure GameManager starts the song.");
             return;
         }
 
@@ -38,11 +38,11 @@ public class ArrowSpawner : MonoBehaviour
         {
             BeatData data = JsonUtility.FromJson<BeatData>(beatDataFile.text);
             beatTimes = new List<float>(data.beats);
-            Debug.Log($"✅ Loaded {beatTimes.Count} beats from JSON.");
+            Debug.Log($"Loaded {beatTimes.Count} beats from JSON.");
         }
         else
         {
-            Debug.LogError("❌ Beat file not assigned!");
+            Debug.LogError("Beat file not assigned!");
         }
     }
 
@@ -50,7 +50,7 @@ public class ArrowSpawner : MonoBehaviour
     {
         if (arrowPrefabs.Length != 4 || spawnPoints.Length != 4)
         {
-            Debug.LogError("❌ Ensure there are exactly 4 arrow prefabs and 4 spawn points assigned.");
+            Debug.LogError("Ensure there are exactly 4 arrow prefabs and 4 spawn points assigned.");
             yield break;
         }
 
@@ -66,7 +66,7 @@ public class ArrowSpawner : MonoBehaviour
     {
         if (arrowPrefabs.Length != 4 || spawnPoints.Length != 4)
         {
-            Debug.LogError("❌ Ensure there are exactly 4 arrow prefabs and 4 spawn points assigned.");
+            Debug.LogError("Ensure there are exactly 4 arrow prefabs and 4 spawn points assigned.");
             return;
         }
 
@@ -87,7 +87,7 @@ public class ArrowSpawner : MonoBehaviour
             fallingArrow.StartFalling();
         }
 
-        Debug.Log($"🟢 Spawned {arrowPrefabs[arrowType].name} at {spawnPoint.position}");
+        Debug.Log($"Spawned {arrowPrefabs[arrowType].name} at {spawnPoint.position}");
     }
 
     float GetTravelTime()

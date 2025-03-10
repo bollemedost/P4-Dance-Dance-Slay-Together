@@ -44,11 +44,11 @@ public class GameManager : MonoBehaviour
 
         if (beatLoader == null)
         {
-            Debug.LogError("❌ BeatLoader is not assigned in GameManager!");
+            Debug.LogError("BeatLoader is not assigned in GameManager!");
         }
         if (arrowSpawner == null)
         {
-            Debug.LogError("❌ ArrowSpawner is not assigned in GameManager!");
+            Debug.LogError("ArrowSpawner is not assigned in GameManager!");
         }
     }
 
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartMusicWithDelay()
     {
-        Debug.Log($"🎵 Waiting {delayTime} seconds before starting the music...");
+        Debug.Log($"Waiting {delayTime} seconds before starting the music...");
         yield return new WaitForSeconds(delayTime);
 
         theMusic.Play();
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
     {
         if (beatLoader == null || arrowSpawner == null)
         {
-            Debug.LogError("❌ BeatLoader or ArrowSpawner is missing!");
+            Debug.LogError("BeatLoader or ArrowSpawner is missing!");
             yield break;
         }
 
@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
 
     public void NoteMissed(GameObject missedArrow)
     {
-        Debug.Log("❌ Missed Note - Resetting Multiplier");
+        Debug.Log("Missed Note - Resetting Multiplier");
 
         currentMultiplier = 1;
         multiplierTracker = 0;

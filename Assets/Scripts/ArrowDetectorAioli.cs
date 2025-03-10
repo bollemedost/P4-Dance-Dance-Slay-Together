@@ -73,7 +73,7 @@ public class ArrowDetectorAioli : MonoBehaviour
             // Destroy the feedback after delay
             if (spawnedText != null)
             {
-                Debug.Log($"🟢 Spawning Feedback: {spawnedText.name} at {transform.position}");
+                Debug.Log($"Spawning Feedback: {spawnedText.name} at {transform.position}");
                 Destroy(spawnedText, delayTime);
             }
         }
@@ -92,7 +92,7 @@ public class ArrowDetectorAioli : MonoBehaviour
         if (other.tag == "Activator" && gameObject.activeSelf)
         {
             canBePressed = false;
-            Debug.Log("❌ Missed Note - Resetting Multiplier");
+            Debug.Log("Missed Note - Resetting Multiplier");
             GameManager.instance.NoteMissed(gameObject);
 
             // Spawn miss text feedback
