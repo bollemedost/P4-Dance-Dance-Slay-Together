@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public AudioSource theMusic;
     public bool startPlaying;
-    public ArrowScrollerAioli theArrowScroller;
+    //public ArrowScrollerAioli theArrowScroller;
 
     public static GameManager instance; // Singleton pattern
 
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
             if (Input.anyKeyDown)
             {
                 startPlaying = true;
-                theArrowScroller.hasStarted = true;
+                //theArrowScroller.hasStarted = true;
 
                 // Start arrows immediately
                 StartCoroutine(SpawnArrowsOnBeat());
