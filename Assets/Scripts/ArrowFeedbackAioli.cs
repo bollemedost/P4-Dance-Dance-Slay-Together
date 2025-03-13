@@ -1,69 +1,82 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem; // Required for DDR Input System
 
 public class ArrowFeedbackAioli : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     public Sprite defaultSprite;
     public Sprite pressedSprite;
-    public KeyCode keyToPress; // Keyboard key
+    public KeyCode keyToPress;
 
-    private DDRInput ddrInput; // DDR Input reference
-    public string ddrActionName; // The action name assigned to this arrow (set in Unity Inspector)
-
-    void Start()
+    void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
-        // Initialize DDR input system
-        ddrInput = new DDRInput();
-        ddrInput.Enable();
+        spriteRenderer = GetComponent<SpriteRenderer>(); // Ensure it gets the component
+        if (spriteRenderer == null)
+        {
+            Debug.LogError("❌ SpriteRenderer is missing on " + gameObject.name);
+        }
     }
 
-    void Update()
+    void OnEnable()
     {
-        // Check for keyboard key press
-        bool keyPressed = Input.GetKeyDown(keyToPress);
-        bool keyReleased = Input.GetKeyUp(keyToPress);
+        // Subscribe to Arduino inputs
+        ArduinoSerial.OnLeftPressed += HandleLeftPress;
+        ArduinoSerial.OnDownPressed += HandleDownPress;
+        ArduinoSerial.OnUpPressed += HandleUpPress;
+        ArduinoSerial.OnRightPressed += HandleRightPress;
+    }
 
-        // Check for specific DDR input assigned to this arrow
-        bool ddrPressed = false;
-        bool ddrReleased = false;
+    void OnDisable()
+    {
+        // Unsubscribe to prevent memory leaks
+        ArduinoSerial.OnLeftPressed -= HandleLeftPress;
+        ArduinoSerial.OnDownPressed -= HandleDownPress;
+        ArduinoSerial.OnUpPressed -= HandleUpPress;
+        ArduinoSerial.OnRightPressed -= HandleRightPress;
+    }
 
-        switch (ddrActionName)
+    void HandleLeftPress()
+    {
+        if (keyToPress == KeyCode.LeftArrow) ShowPressedSprite();
+    }
+
+    void HandleDownPress()
+    {
+        if (keyToPress == KeyCode.DownArrow) ShowPressedSprite();
+    }
+
+    void HandleUpPress()
+    {
+        if (keyToPress == KeyCode.UpArrow) ShowPressedSprite();
+    }
+
+    void HandleRightPress()
+    {
+        if (keyToPress == KeyCode.RightArrow) ShowPressedSprite();
+    }
+
+    void ShowPressedSprite()
+    {
+        if (spriteRenderer == null)
         {
-            case "Up":
-                ddrPressed = ddrInput.DDR.Up.WasPressedThisFrame();
-                ddrReleased = ddrInput.DDR.Up.WasReleasedThisFrame();
-                break;
-            case "Down":
-                ddrPressed = ddrInput.DDR.Down.WasPressedThisFrame();
-                ddrReleased = ddrInput.DDR.Down.WasReleasedThisFrame();
-                break;
-            case "Left":
-                ddrPressed = ddrInput.DDR.Left.WasPressedThisFrame();
-                ddrReleased = ddrInput.DDR.Left.WasReleasedThisFrame();
-                break;
-            case "Right":
-                ddrPressed = ddrInput.DDR.Right.WasPressedThisFrame();
-                ddrReleased = ddrInput.DDR.Right.WasReleasedThisFrame();
-                break;
+            Debug.LogError("❌ SpriteRenderer is NULL when trying to change sprite!");
+            return;
         }
 
-        // Change sprite when key or assigned DDR button is pressed
-        if (keyPressed || ddrPressed)
-        {
-            spriteRenderer.sprite = pressedSprite;
-        }
+        spriteRenderer.sprite = pressedSprite;
+        Invoke("ResetSprite", 0.1f);
+    }
 
-        // Revert sprite when key or assigned DDR button is released
-        if (keyReleased || ddrReleased)
+    void ResetSprite()
+    {
+        if (spriteRenderer != null)
         {
             spriteRenderer.sprite = defaultSprite;
         }
     }
 }
+
+
 
 //References: Used https://www.youtube.com/@gamesplusjames as a reference for the code.

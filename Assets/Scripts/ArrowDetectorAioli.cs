@@ -1,80 +1,72 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem; // Required for DDR Input System
 
 public class ArrowDetectorAioli : MonoBehaviour
 {
     public bool canBePressed;
-    public KeyCode keyToPress; // Keyboard input
-    private DDRInput ddrInput; // DDR Input reference
+    public KeyCode keyToPress;
 
-    public float normalHitThreshold = 0.25f;
-    public float goodHitThreshold = 0.15f;
-
-    // Prefabs for feedback (Assign in Unity Inspector)
+    // Feedback Prefabs (assigned in Unity Inspector)
     public GameObject normalHitText, goodHitText, perfectHitText, missText;
-    public float delayTime = 1f; // Time before feedback disappears
-    private GameObject spawnedText;
+    public float feedbackDuration = 1f; // Time before feedback disappears
 
-    private void Awake()
+    private void OnEnable()
     {
-        ddrInput = new DDRInput(); // Initialize DDR input
-        ddrInput.Enable(); // Enable DDR inputs
+        // Subscribe to Arduino inputs
+        ArduinoSerial.OnLeftPressed += HandleLeftPress;
+        ArduinoSerial.OnDownPressed += HandleDownPress;
+        ArduinoSerial.OnUpPressed += HandleUpPress;
+        ArduinoSerial.OnRightPressed += HandleRightPress;
     }
 
-    void Update()
+    private void OnDisable()
     {
-        bool keyPressed = Input.GetKeyDown(keyToPress);
+        // Unsubscribe to prevent memory leaks
+        ArduinoSerial.OnLeftPressed -= HandleLeftPress;
+        ArduinoSerial.OnDownPressed -= HandleDownPress;
+        ArduinoSerial.OnUpPressed -= HandleUpPress;
+        ArduinoSerial.OnRightPressed -= HandleRightPress;
+    }
 
-        // Check DDR pad inputs
-        bool ddrPressed = false;
-        switch (keyToPress)
-        {
-            case KeyCode.UpArrow:
-                ddrPressed = ddrInput.DDR.Up.WasPressedThisFrame();
-                break;
-            case KeyCode.DownArrow:
-                ddrPressed = ddrInput.DDR.Down.WasPressedThisFrame();
-                break;
-            case KeyCode.LeftArrow:
-                ddrPressed = ddrInput.DDR.Left.WasPressedThisFrame();
-                break;
-            case KeyCode.RightArrow:
-                ddrPressed = ddrInput.DDR.Right.WasPressedThisFrame();
-                break;
-        }
+    void HandleLeftPress() { if (keyToPress == KeyCode.LeftArrow) CheckPress(); }
+    void HandleDownPress() { if (keyToPress == KeyCode.DownArrow) CheckPress(); }
+    void HandleUpPress() { if (keyToPress == KeyCode.UpArrow) CheckPress(); }
+    void HandleRightPress() { if (keyToPress == KeyCode.RightArrow) CheckPress(); }
 
-        // If key or DDR pad button is pressed
-        if ((keyPressed || ddrPressed) && canBePressed)
+    void CheckPress()
+    {
+        if (canBePressed)
         {
             gameObject.SetActive(false); // Remove the arrow from screen
 
-            // Determine accuracy of hit
-            if (Mathf.Abs(transform.position.y) > normalHitThreshold)
+            float hitAccuracy = Mathf.Abs(transform.position.y);
+
+            GameObject feedbackInstance = null;
+
+            if (hitAccuracy > 0.25f)
             {
-                Debug.Log("Hit!");
+                Debug.Log("✅ Normal Hit!");
                 GameManager.instance.NormalHit();
-                spawnedText = Instantiate(normalHitText, transform.position, Quaternion.identity);
+                feedbackInstance = Instantiate(normalHitText, transform.position, Quaternion.identity);
             }
-            else if (Mathf.Abs(transform.position.y) > goodHitThreshold)
+            else if (hitAccuracy > 0.15f)
             {
-                Debug.Log("Good Hit!");
+                Debug.Log("🌟 Good Hit!");
                 GameManager.instance.GoodHit();
-                spawnedText = Instantiate(goodHitText, transform.position, Quaternion.identity);
+                feedbackInstance = Instantiate(goodHitText, transform.position, Quaternion.identity);
             }
             else
             {
-                Debug.Log("Perfect Hit!");
+                Debug.Log("💯 Perfect Hit!");
                 GameManager.instance.PerfectHit();
-                spawnedText = Instantiate(perfectHitText, transform.position, Quaternion.identity);
+                feedbackInstance = Instantiate(perfectHitText, transform.position, Quaternion.identity);
             }
 
             // Destroy the feedback after delay
-            if (spawnedText != null)
+            if (feedbackInstance != null)
             {
-                Debug.Log($"Spawning Feedback: {spawnedText.name} at {transform.position}");
-                Destroy(spawnedText, delayTime);
+                Destroy(feedbackInstance, feedbackDuration);
             }
         }
     }
@@ -92,14 +84,13 @@ public class ArrowDetectorAioli : MonoBehaviour
         if (other.tag == "Activator" && gameObject.activeSelf)
         {
             canBePressed = false;
-            Debug.Log("Missed Note - Resetting Multiplier");
+            Debug.Log("❌ Missed Note!");
             GameManager.instance.NoteMissed(gameObject);
 
-            // Spawn miss text feedback
-            spawnedText = Instantiate(missText, transform.position, Quaternion.identity);
-            if (spawnedText != null)
+            GameObject missInstance = Instantiate(missText, transform.position, Quaternion.identity);
+            if (missInstance != null)
             {
-                Destroy(spawnedText, delayTime);
+                Destroy(missInstance, feedbackDuration);
             }
         }
     }
