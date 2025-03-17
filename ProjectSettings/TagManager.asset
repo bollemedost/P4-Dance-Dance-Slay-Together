@@ -45,9 +45,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1350413309
+    locked: 0
+  - name: Header
+    uniqueID: 3080270007
+    locked: 0
   - name: Arrow
     uniqueID: 1962004063
     locked: 0
   - name: Moving Arrows
     uniqueID: 3223143753
+    locked: 0
+  - name: Text
+    uniqueID: 3676311549
     locked: 0
