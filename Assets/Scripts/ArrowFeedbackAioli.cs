@@ -11,7 +11,7 @@ public class ArrowFeedbackAioli : MonoBehaviour
 
     void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>(); // Ensure it gets the component
+        spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
         {
             Debug.LogError("❌ SpriteRenderer is missing on " + gameObject.name);
@@ -20,41 +20,45 @@ public class ArrowFeedbackAioli : MonoBehaviour
 
     void OnEnable()
     {
-        // Subscribe to Arduino inputs
-        ArduinoSerial.OnLeftPressed += HandleLeftPress;
-        ArduinoSerial.OnDownPressed += HandleDownPress;
-        ArduinoSerial.OnUpPressed += HandleUpPress;
-        ArduinoSerial.OnRightPressed += HandleRightPress;
+        // Player 1 inputs
+        ArduinoSerial.OnLeft1Pressed += HandleLeft1Press;
+        ArduinoSerial.OnDown1Pressed += HandleDown1Press;
+        ArduinoSerial.OnUp1Pressed += HandleUp1Press;
+        ArduinoSerial.OnRight1Pressed += HandleRight1Press;
+
+        // Player 2 inputs
+        ArduinoSerial.OnLeft2Pressed += HandleLeft2Press;
+        ArduinoSerial.OnDown2Pressed += HandleDown2Press;
+        ArduinoSerial.OnUp2Pressed += HandleUp2Press;
+        ArduinoSerial.OnRight2Pressed += HandleRight2Press;
     }
 
     void OnDisable()
     {
-        // Unsubscribe to prevent memory leaks
-        ArduinoSerial.OnLeftPressed -= HandleLeftPress;
-        ArduinoSerial.OnDownPressed -= HandleDownPress;
-        ArduinoSerial.OnUpPressed -= HandleUpPress;
-        ArduinoSerial.OnRightPressed -= HandleRightPress;
+        // Player 1 inputs
+        ArduinoSerial.OnLeft1Pressed -= HandleLeft1Press;
+        ArduinoSerial.OnDown1Pressed -= HandleDown1Press;
+        ArduinoSerial.OnUp1Pressed -= HandleUp1Press;
+        ArduinoSerial.OnRight1Pressed -= HandleRight1Press;
+
+        // Player 2 inputs
+        ArduinoSerial.OnLeft2Pressed -= HandleLeft2Press;
+        ArduinoSerial.OnDown2Pressed -= HandleDown2Press;
+        ArduinoSerial.OnUp2Pressed -= HandleUp2Press;
+        ArduinoSerial.OnRight2Pressed -= HandleRight2Press;
     }
 
-    void HandleLeftPress()
-    {
-        if (keyToPress == KeyCode.LeftArrow) ShowPressedSprite();
-    }
+    // Player 1 handlers
+    void HandleLeft1Press() { if (keyToPress == KeyCode.LeftArrow && CompareTag("Activator1")) ShowPressedSprite(); }
+    void HandleDown1Press() { if (keyToPress == KeyCode.DownArrow && CompareTag("Activator1")) ShowPressedSprite(); }
+    void HandleUp1Press() { if (keyToPress == KeyCode.UpArrow && CompareTag("Activator1")) ShowPressedSprite(); }
+    void HandleRight1Press() { if (keyToPress == KeyCode.RightArrow && CompareTag("Activator1")) ShowPressedSprite(); }
 
-    void HandleDownPress()
-    {
-        if (keyToPress == KeyCode.DownArrow) ShowPressedSprite();
-    }
-
-    void HandleUpPress()
-    {
-        if (keyToPress == KeyCode.UpArrow) ShowPressedSprite();
-    }
-
-    void HandleRightPress()
-    {
-        if (keyToPress == KeyCode.RightArrow) ShowPressedSprite();
-    }
+    // Player 2 handlers
+    void HandleLeft2Press() { if (keyToPress == KeyCode.LeftArrow && CompareTag("Activator2")) ShowPressedSprite(); }
+    void HandleDown2Press() { if (keyToPress == KeyCode.DownArrow && CompareTag("Activator2")) ShowPressedSprite(); }
+    void HandleUp2Press() { if (keyToPress == KeyCode.UpArrow && CompareTag("Activator2")) ShowPressedSprite(); }
+    void HandleRight2Press() { if (keyToPress == KeyCode.RightArrow && CompareTag("Activator2")) ShowPressedSprite(); }
 
     void ShowPressedSprite()
     {

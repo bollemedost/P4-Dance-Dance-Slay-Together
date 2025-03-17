@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 58775336}
   m_Layer: 0
   m_Name: Left Arrow P2
-  m_TagString: Activator
+  m_TagString: Activator2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,7 +245,6 @@ MonoBehaviour:
   defaultSprite: {fileID: 21300000, guid: 0245c5cf1dc634a7cba870a6288405fc, type: 3}
   pressedSprite: {fileID: 21300000, guid: 1489f3c9582884f23a9cf793597fda8a, type: 3}
   keyToPress: 276
-  ddrActionName: Left
 --- !u!212 &58775339
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -533,7 +532,7 @@ GameObject:
   - component: {fileID: 166218512}
   m_Layer: 0
   m_Name: Down Arrow P1
-  m_TagString: Activator
+  m_TagString: Activator1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -553,7 +552,6 @@ MonoBehaviour:
   defaultSprite: {fileID: 21300000, guid: 4d965ad2a0a324b659f3987801efe10c, type: 3}
   pressedSprite: {fileID: 21300000, guid: c3d412264692f4d98b83bccce31ca422, type: 3}
   keyToPress: 274
-  ddrActionName: Down
 --- !u!212 &166218509
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -883,13 +881,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 276
-  normalHitThreshold: 0.25
-  goodHitThreshold: 0.15
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
   missText: {fileID: 0}
-  delayTime: 1
+  feedbackDuration: 1
 --- !u!1 &207701060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,13 +1070,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 273
-  normalHitThreshold: 0.25
-  goodHitThreshold: 0.15
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
   missText: {fileID: 0}
-  delayTime: 1
+  feedbackDuration: 1
 --- !u!1 &446584296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,7 +1200,7 @@ GameObject:
   - component: {fileID: 471486451}
   m_Layer: 0
   m_Name: Right Arrow P1
-  m_TagString: Activator
+  m_TagString: Activator1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1226,7 +1220,6 @@ MonoBehaviour:
   defaultSprite: {fileID: 21300000, guid: 456733c2802ba48ec906ec062b800871, type: 3}
   pressedSprite: {fileID: 21300000, guid: a9193c747e25448c4b5ca55a7402c0f5, type: 3}
   keyToPress: 275
-  ddrActionName: Right
 --- !u!212 &471486448
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1542,13 +1535,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 275
-  normalHitThreshold: 0.25
-  goodHitThreshold: 0.15
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
   missText: {fileID: 0}
-  delayTime: 1
+  feedbackDuration: 1
 --- !u!1 &609921216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,13 +1695,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 275
-  normalHitThreshold: 0.25
-  goodHitThreshold: 0.15
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
   missText: {fileID: 0}
-  delayTime: 1
+  feedbackDuration: 1
 --- !u!212 &739717199
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1846,7 +1835,7 @@ GameObject:
   - component: {fileID: 754257914}
   m_Layer: 0
   m_Name: Up Arrow P2
-  m_TagString: Activator
+  m_TagString: Activator2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1953,7 +1942,6 @@ MonoBehaviour:
   defaultSprite: {fileID: 21300000, guid: 85681551319ed446f88eca9b45c5b074, type: 3}
   pressedSprite: {fileID: 21300000, guid: 0b8cf1f256d234f59b84593d99e93f70, type: 3}
   keyToPress: 273
-  ddrActionName: Up
 --- !u!212 &754257917
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2099,13 +2087,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 276
-  normalHitThreshold: 0.25
-  goodHitThreshold: 0.15
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
   missText: {fileID: 0}
-  delayTime: 1
+  feedbackDuration: 1
 --- !u!212 &801420506
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2173,7 +2159,7 @@ GameObject:
   - component: {fileID: 834105780}
   m_Layer: 0
   m_Name: Left Arrow P1
-  m_TagString: Activator
+  m_TagString: Activator1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2193,7 +2179,6 @@ MonoBehaviour:
   defaultSprite: {fileID: 21300000, guid: 0245c5cf1dc634a7cba870a6288405fc, type: 3}
   pressedSprite: {fileID: 21300000, guid: 1489f3c9582884f23a9cf793597fda8a, type: 3}
   keyToPress: 276
-  ddrActionName: Left
 --- !u!212 &834105777
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2426,13 +2411,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 275
-  normalHitThreshold: 0.25
-  goodHitThreshold: 0.15
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
   missText: {fileID: 0}
-  delayTime: 1
+  feedbackDuration: 1
 --- !u!212 &877337832
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2693,13 +2676,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 274
-  normalHitThreshold: 0.25
-  goodHitThreshold: 0.15
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
   missText: {fileID: 0}
-  delayTime: 1
+  feedbackDuration: 1
 --- !u!212 &1001464097
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3055,13 +3036,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 274
-  normalHitThreshold: 0.25
-  goodHitThreshold: 0.15
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
   missText: {fileID: 0}
-  delayTime: 1
+  feedbackDuration: 1
 --- !u!212 &1340985780
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3207,13 +3186,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 276
-  normalHitThreshold: 0.25
-  goodHitThreshold: 0.15
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
   missText: {fileID: 0}
-  delayTime: 1
+  feedbackDuration: 1
 --- !u!212 &1344543772
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3281,7 +3258,7 @@ GameObject:
   - component: {fileID: 1359343456}
   m_Layer: 0
   m_Name: Right Arrow P2
-  m_TagString: Activator
+  m_TagString: Activator2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3388,7 +3365,6 @@ MonoBehaviour:
   defaultSprite: {fileID: 21300000, guid: 456733c2802ba48ec906ec062b800871, type: 3}
   pressedSprite: {fileID: 21300000, guid: a9193c747e25448c4b5ca55a7402c0f5, type: 3}
   keyToPress: 275
-  ddrActionName: Right
 --- !u!212 &1359343459
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3645,13 +3621,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 273
-  normalHitThreshold: 0.25
-  goodHitThreshold: 0.15
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
   missText: {fileID: 0}
-  delayTime: 1
+  feedbackDuration: 1
 --- !u!212 &1641187934
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3719,7 +3693,7 @@ GameObject:
   - component: {fileID: 1643371830}
   m_Layer: 0
   m_Name: Down Arrow P2
-  m_TagString: Activator
+  m_TagString: Activator2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3826,7 +3800,6 @@ MonoBehaviour:
   defaultSprite: {fileID: 21300000, guid: 4d965ad2a0a324b659f3987801efe10c, type: 3}
   pressedSprite: {fileID: 21300000, guid: c3d412264692f4d98b83bccce31ca422, type: 3}
   keyToPress: 274
-  ddrActionName: Down
 --- !u!212 &1643371833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4167,13 +4140,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 274
-  normalHitThreshold: 0.25
-  goodHitThreshold: 0.15
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
   missText: {fileID: 0}
-  delayTime: 1
+  feedbackDuration: 1
 --- !u!4 &1948656920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 982616658684354742, guid: 545007bbbe99d4039b1235a5a5f1c59d, type: 3}
@@ -4194,7 +4165,7 @@ GameObject:
   - component: {fileID: 2027239498}
   m_Layer: 0
   m_Name: 'Up Arrow P1 '
-  m_TagString: Activator
+  m_TagString: Activator1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4214,7 +4185,6 @@ MonoBehaviour:
   defaultSprite: {fileID: 21300000, guid: 85681551319ed446f88eca9b45c5b074, type: 3}
   pressedSprite: {fileID: 21300000, guid: 0b8cf1f256d234f59b84593d99e93f70, type: 3}
   keyToPress: 273
-  ddrActionName: Up
 --- !u!212 &2027239495
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4447,13 +4417,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 273
-  normalHitThreshold: 0.25
-  goodHitThreshold: 0.15
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
   missText: {fileID: 0}
-  delayTime: 1
+  feedbackDuration: 1
 --- !u!212 &2102346349
 SpriteRenderer:
   m_ObjectHideFlags: 0

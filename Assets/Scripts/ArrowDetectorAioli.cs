@@ -7,38 +7,57 @@ public class ArrowDetectorAioli : MonoBehaviour
     public bool canBePressed;
     public KeyCode keyToPress;
 
-    // Feedback Prefabs (assigned in Unity Inspector)
+    // Feedback Prefabs
     public GameObject normalHitText, goodHitText, perfectHitText, missText;
-    public float feedbackDuration = 1f; // Time before feedback disappears
+    public float feedbackDuration = 1f;
 
     private void OnEnable()
     {
-        // Subscribe to Arduino inputs
-        ArduinoSerial.OnLeftPressed += HandleLeftPress;
-        ArduinoSerial.OnDownPressed += HandleDownPress;
-        ArduinoSerial.OnUpPressed += HandleUpPress;
-        ArduinoSerial.OnRightPressed += HandleRightPress;
+        // Player 1
+        ArduinoSerial.OnLeft1Pressed += HandleLeft1Press;
+        ArduinoSerial.OnDown1Pressed += HandleDown1Press;
+        ArduinoSerial.OnUp1Pressed += HandleUp1Press;
+        ArduinoSerial.OnRight1Pressed += HandleRight1Press;
+
+        // Player 2
+        ArduinoSerial.OnLeft2Pressed += HandleLeft2Press;
+        ArduinoSerial.OnDown2Pressed += HandleDown2Press;
+        ArduinoSerial.OnUp2Pressed += HandleUp2Press;
+        ArduinoSerial.OnRight2Pressed += HandleRight2Press;
     }
 
     private void OnDisable()
     {
-        // Unsubscribe to prevent memory leaks
-        ArduinoSerial.OnLeftPressed -= HandleLeftPress;
-        ArduinoSerial.OnDownPressed -= HandleDownPress;
-        ArduinoSerial.OnUpPressed -= HandleUpPress;
-        ArduinoSerial.OnRightPressed -= HandleRightPress;
+        // Player 1
+        ArduinoSerial.OnLeft1Pressed -= HandleLeft1Press;
+        ArduinoSerial.OnDown1Pressed -= HandleDown1Press;
+        ArduinoSerial.OnUp1Pressed -= HandleUp1Press;
+        ArduinoSerial.OnRight1Pressed -= HandleRight1Press;
+
+        // Player 2
+        ArduinoSerial.OnLeft2Pressed -= HandleLeft2Press;
+        ArduinoSerial.OnDown2Pressed -= HandleDown2Press;
+        ArduinoSerial.OnUp2Pressed -= HandleUp2Press;
+        ArduinoSerial.OnRight2Pressed -= HandleRight2Press;
     }
 
-    void HandleLeftPress() { if (keyToPress == KeyCode.LeftArrow) CheckPress(); }
-    void HandleDownPress() { if (keyToPress == KeyCode.DownArrow) CheckPress(); }
-    void HandleUpPress() { if (keyToPress == KeyCode.UpArrow) CheckPress(); }
-    void HandleRightPress() { if (keyToPress == KeyCode.RightArrow) CheckPress(); }
+    // Player 1
+    void HandleLeft1Press() { if (keyToPress == KeyCode.LeftArrow) CheckPress(); }
+    void HandleDown1Press() { if (keyToPress == KeyCode.DownArrow) CheckPress(); }
+    void HandleUp1Press() { if (keyToPress == KeyCode.UpArrow) CheckPress(); }
+    void HandleRight1Press() { if (keyToPress == KeyCode.RightArrow) CheckPress(); }
+
+    // Player 2
+    void HandleLeft2Press() { if (keyToPress == KeyCode.LeftArrow) CheckPress(); }
+    void HandleDown2Press() { if (keyToPress == KeyCode.DownArrow) CheckPress(); }
+    void HandleUp2Press() { if (keyToPress == KeyCode.UpArrow) CheckPress(); }
+    void HandleRight2Press() { if (keyToPress == KeyCode.RightArrow) CheckPress(); }
 
     void CheckPress()
     {
         if (canBePressed)
         {
-            gameObject.SetActive(false); // Remove the arrow from screen
+            gameObject.SetActive(false); // Remove arrow
 
             float hitAccuracy = Mathf.Abs(transform.position.y);
 
@@ -63,7 +82,6 @@ public class ArrowDetectorAioli : MonoBehaviour
                 feedbackInstance = Instantiate(perfectHitText, transform.position, Quaternion.identity);
             }
 
-            // Destroy the feedback after delay
             if (feedbackInstance != null)
             {
                 Destroy(feedbackInstance, feedbackDuration);
@@ -73,7 +91,7 @@ public class ArrowDetectorAioli : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Activator")
+        if (other.CompareTag("Activator1") || other.CompareTag("Activator2"))
         {
             canBePressed = true;
         }
@@ -81,7 +99,7 @@ public class ArrowDetectorAioli : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Activator" && gameObject.activeSelf)
+        if ((other.CompareTag("Activator1") || other.CompareTag("Activator2")) && gameObject.activeSelf)
         {
             canBePressed = false;
             Debug.Log("❌ Missed Note!");

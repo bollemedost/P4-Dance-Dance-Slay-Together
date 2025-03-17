@@ -9,14 +9,20 @@ public class ArduinoSerial : MonoBehaviour
     private SerialPort serialPort;
     private Thread serialThread;
     private bool isRunning = true;
-    private Queue<string> messageQueue = new Queue<string>(); // Queue for handling messages safely
-    private object lockObject = new object(); // Lock object for thread safety
+    private Queue<string> messageQueue = new Queue<string>();
+    private object lockObject = new object();
 
-    // Events to trigger input actions
-    public static event Action OnLeftPressed;
-    public static event Action OnDownPressed;
-    public static event Action OnUpPressed;
-    public static event Action OnRightPressed;
+    // Player 1 Events
+    public static event Action OnLeft1Pressed;
+    public static event Action OnDown1Pressed;
+    public static event Action OnUp1Pressed;
+    public static event Action OnRight1Pressed;
+
+    // Player 2 Events
+    public static event Action OnLeft2Pressed;
+    public static event Action OnDown2Pressed;
+    public static event Action OnUp2Pressed;
+    public static event Action OnRight2Pressed;
 
     void Start()
     {
@@ -27,7 +33,6 @@ public class ArduinoSerial : MonoBehaviour
             serialPort.ReadTimeout = 100;
             Debug.Log("Connected to Arduino on COM7");
 
-            // Start a new thread for reading serial data
             serialThread = new Thread(ReadSerial);
             serialThread.Start();
         }
@@ -46,11 +51,11 @@ public class ArduinoSerial : MonoBehaviour
                 string message = serialPort.ReadLine().Trim();
                 lock (lockObject)
                 {
-                    messageQueue.Enqueue(message); // Store messages in queue
+                    messageQueue.Enqueue(message);
                 }
             }
             catch (TimeoutException) { }
-            Thread.Sleep(10); // Prevents CPU overload
+            Thread.Sleep(10);
         }
     }
 
@@ -58,27 +63,22 @@ public class ArduinoSerial : MonoBehaviour
     {
         lock (lockObject)
         {
-            while (messageQueue.Count > 0) // Process all messages
+            while (messageQueue.Count > 0)
             {
                 string message = messageQueue.Dequeue();
-                Debug.Log("Received: " + message); // Display every press
+                Debug.Log("Received: " + message);
 
-                // Trigger corresponding events
-                switch (message)
-                {
-                    case "Left":
-                        OnLeftPressed?.Invoke();
-                        break;
-                    case "Down":
-                        OnDownPressed?.Invoke();
-                        break;
-                    case "Up":
-                        OnUpPressed?.Invoke();
-                        break;
-                    case "Right":
-                        OnRightPressed?.Invoke();
-                        break;
-                }
+                // Player 1
+                if (message == "Left1") OnLeft1Pressed?.Invoke();
+                if (message == "Down1") OnDown1Pressed?.Invoke();
+                if (message == "Up1") OnUp1Pressed?.Invoke();
+                if (message == "Right1") OnRight1Pressed?.Invoke();
+
+                // Player 2
+                if (message == "Left2") OnLeft2Pressed?.Invoke();
+                if (message == "Down2") OnDown2Pressed?.Invoke();
+                if (message == "Up2") OnUp2Pressed?.Invoke();
+                if (message == "Right2") OnRight2Pressed?.Invoke();
             }
         }
     }
@@ -87,7 +87,7 @@ public class ArduinoSerial : MonoBehaviour
     {
         isRunning = false;
         if (serialThread != null && serialThread.IsAlive)
-            serialThread.Join(); // Stop the thread safely
+            serialThread.Join();
 
         if (serialPort != null && serialPort.IsOpen)
             serialPort.Close();

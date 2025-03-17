@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Activator
+  - FallingArrow
+  - Activator1
+  - Activator2
   layers:
   - Default
   - TransparentFX
