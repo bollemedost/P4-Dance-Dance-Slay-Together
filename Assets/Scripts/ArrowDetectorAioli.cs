@@ -6,6 +6,7 @@ public class ArrowDetectorAioli : MonoBehaviour
 {
     public bool canBePressed;
     public KeyCode keyToPress;
+    public int playerNumber; // NEW: 1 for Player 1, 2 for Player 2
 
     // Feedback Prefabs
     public GameObject normalHitText, goodHitText, perfectHitText, missText;
@@ -41,17 +42,17 @@ public class ArrowDetectorAioli : MonoBehaviour
         ArduinoSerial.OnRight2Pressed -= HandleRight2Press;
     }
 
-    // Player 1
-    void HandleLeft1Press() { if (keyToPress == KeyCode.LeftArrow) CheckPress(); }
-    void HandleDown1Press() { if (keyToPress == KeyCode.DownArrow) CheckPress(); }
-    void HandleUp1Press() { if (keyToPress == KeyCode.UpArrow) CheckPress(); }
-    void HandleRight1Press() { if (keyToPress == KeyCode.RightArrow) CheckPress(); }
+    // PLAYER 1
+    void HandleLeft1Press() { if (keyToPress == KeyCode.LeftArrow && playerNumber == 1) CheckPress(); }
+    void HandleDown1Press() { if (keyToPress == KeyCode.DownArrow && playerNumber == 1) CheckPress(); }
+    void HandleUp1Press() { if (keyToPress == KeyCode.UpArrow && playerNumber == 1) CheckPress(); }
+    void HandleRight1Press() { if (keyToPress == KeyCode.RightArrow && playerNumber == 1) CheckPress(); }
 
-    // Player 2
-    void HandleLeft2Press() { if (keyToPress == KeyCode.LeftArrow) CheckPress(); }
-    void HandleDown2Press() { if (keyToPress == KeyCode.DownArrow) CheckPress(); }
-    void HandleUp2Press() { if (keyToPress == KeyCode.UpArrow) CheckPress(); }
-    void HandleRight2Press() { if (keyToPress == KeyCode.RightArrow) CheckPress(); }
+    // PLAYER 2
+    void HandleLeft2Press() { if (keyToPress == KeyCode.LeftArrow && playerNumber == 2) CheckPress(); }
+    void HandleDown2Press() { if (keyToPress == KeyCode.DownArrow && playerNumber == 2) CheckPress(); }
+    void HandleUp2Press() { if (keyToPress == KeyCode.UpArrow && playerNumber == 2) CheckPress(); }
+    void HandleRight2Press() { if (keyToPress == KeyCode.RightArrow && playerNumber == 2) CheckPress(); }
 
     void CheckPress()
     {
@@ -91,7 +92,7 @@ public class ArrowDetectorAioli : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Activator1") || other.CompareTag("Activator2"))
+        if ((other.CompareTag("Activator1") && playerNumber == 1) || (other.CompareTag("Activator2") && playerNumber == 2))
         {
             canBePressed = true;
         }
@@ -99,7 +100,7 @@ public class ArrowDetectorAioli : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if ((other.CompareTag("Activator1") || other.CompareTag("Activator2")) && gameObject.activeSelf)
+        if (((other.CompareTag("Activator1") && playerNumber == 1) || (other.CompareTag("Activator2") && playerNumber == 2)) && gameObject.activeSelf)
         {
             canBePressed = false;
             Debug.Log("❌ Missed Note!");

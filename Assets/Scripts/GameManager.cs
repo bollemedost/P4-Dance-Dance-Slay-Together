@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
-        scoreText.text = "Score: 0";
+        scoreText.text = "0";
         currentMultiplier = 1;
         multiplierText.text = "Multiplier: x" + currentMultiplier;
 
@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        scoreText.text = "Score: " + currentScore;
+        scoreText.text = currentScore.ToString();
         multiplierText.text = "Multiplier: x" + currentMultiplier;
     }
 

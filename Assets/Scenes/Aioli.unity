@@ -969,6 +969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 276
+  playerNumber: 0
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
@@ -1158,6 +1159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 273
+  playerNumber: 0
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
@@ -1623,6 +1625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 275
+  playerNumber: 0
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
@@ -1858,6 +1861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 275
+  playerNumber: 0
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
@@ -2250,6 +2254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 276
+  playerNumber: 0
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
@@ -2574,6 +2579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 275
+  playerNumber: 0
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
@@ -2927,6 +2933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 274
+  playerNumber: 0
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
@@ -3287,6 +3294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 274
+  playerNumber: 0
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
@@ -3437,6 +3445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 276
+  playerNumber: 0
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
@@ -3976,6 +3985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 273
+  playerNumber: 0
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
@@ -4248,6 +4258,7 @@ MonoBehaviour:
   - {fileID: 1445708048}
   beatDataFile: {fileID: 4900000, guid: 42ae7bc77563afc4ba59830e2ad3314e, type: 3}
   music: {fileID: 104299862}
+  playerNumber: 1
 --- !u!4 &1766405401
 Transform:
   m_ObjectHideFlags: 0
@@ -4304,6 +4315,7 @@ MonoBehaviour:
   - {fileID: 609921217}
   beatDataFile: {fileID: 4900000, guid: 42ae7bc77563afc4ba59830e2ad3314e, type: 3}
   music: {fileID: 104299862}
+  playerNumber: 2
 --- !u!4 &1778649033
 Transform:
   m_ObjectHideFlags: 0
@@ -4495,6 +4507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 274
+  playerNumber: 0
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}
@@ -4772,6 +4785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 273
+  playerNumber: 0
   normalHitText: {fileID: 0}
   goodHitText: {fileID: 0}
   perfectHitText: {fileID: 0}

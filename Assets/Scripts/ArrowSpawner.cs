@@ -6,12 +6,14 @@ using System.IO;
 public class ArrowSpawner : MonoBehaviour
 {
     public GameObject[] arrowPrefabs; // Assign 4 arrow prefabs (Left, Down, Up, Right)
-    public Transform[] spawnPoints; // Assign 8 spawn points (one for each arrow type for each player)
-    public TextAsset beatDataFile; // Drag & Drop Unwritten_beat_timings.json into Inspector
-    public AudioSource music; // Assign MusicPlayer's AudioSource in Inspector
+    public Transform[] spawnPoints; // Assign 4 spawn points (one for each arrow type for each player)
+    public TextAsset beatDataFile;
+    public AudioSource music;
 
     private List<float> beatTimes = new List<float>();
-    private bool hasStarted = false; // Prevents duplicate spawning
+    private bool hasStarted = false;
+
+    public int playerNumber = 1; // NEW: Set to 1 for Player 1, 2 for Player 2 in Inspector!
 
     void Start()
     {
@@ -20,7 +22,7 @@ public class ArrowSpawner : MonoBehaviour
 
     public void StartSpawning()
     {
-        if (hasStarted) return; // Prevents spawning twice
+        if (hasStarted) return;
 
         if (!music.isPlaying)
         {
@@ -28,7 +30,7 @@ public class ArrowSpawner : MonoBehaviour
             return;
         }
 
-        hasStarted = true; // Ensures arrows only spawn once
+        hasStarted = true;
         StartCoroutine(SpawnArrows());
     }
 
@@ -71,28 +73,29 @@ public class ArrowSpawner : MonoBehaviour
         }
 
         int arrowType = Random.Range(0, 4); // 0 = Left, 1 = Down, 2 = Up, 3 = Right
-        //int player = Random.Range(0, 2); // 0 = Player 1, 1 = Player 2
-
-        //int spawnIndex = arrowType + (player * 4); // Offset for Player 2's spawn points
-        //Transform spawnPoint = spawnPoints[spawnIndex]; // Get correct spawn position
-
-        Transform spawnPoint = spawnPoints[arrowType]; // Get correct spawn position
+        Transform spawnPoint = spawnPoints[arrowType];
 
         GameObject newArrow = Instantiate(arrowPrefabs[arrowType], spawnPoint.position, Quaternion.identity);
 
-        // Make sure it starts falling
+        // Assign player number
+        ArrowDetectorAioli detector = newArrow.GetComponent<ArrowDetectorAioli>();
+        if (detector != null)
+        {
+            detector.playerNumber = playerNumber;
+        }
+
         FallingArrow fallingArrow = newArrow.GetComponent<FallingArrow>();
         if (fallingArrow != null)
         {
             fallingArrow.StartFalling();
         }
 
-        Debug.Log($"Spawned {arrowPrefabs[arrowType].name} at {spawnPoint.position}");
+        Debug.Log($"Spawned {arrowPrefabs[arrowType].name} for Player {playerNumber} at {spawnPoint.position}");
     }
 
     float GetTravelTime()
     {
-        return 1.5f; // Adjust based on how long arrows should take to reach the bottom
+        return 1.5f;
     }
 
     [System.Serializable]
