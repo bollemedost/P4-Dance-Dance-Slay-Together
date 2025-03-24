@@ -28,10 +28,11 @@ public class ArduinoSerial : MonoBehaviour
     {
         try
         {
-            serialPort = new SerialPort("COM7", 9600);
+            //serialPort = new SerialPort("COM7", 9600); //port for windows
+            serialPort = new SerialPort("/dev/cu.usbmodem1101", 9600); //port for mac
             serialPort.Open();
             serialPort.ReadTimeout = 100;
-            Debug.Log("Connected to Arduino on COM7");
+            Debug.Log("Connected to Arduino");
 
             serialThread = new Thread(ReadSerial);
             serialThread.Start();
