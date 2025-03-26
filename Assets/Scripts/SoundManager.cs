@@ -6,6 +6,12 @@ public class SoundManager : MonoBehaviour
 
     private AudioSource audioSource;
     public AudioClip soundPerfect;
+    public AudioClip soundMiss;
+    public AudioClip soundBoom;
+    public AudioClip soundGoodJob;
+    public AudioClip soundKeepSlaying;
+    public AudioClip soundSwooshBling;
+    public AudioClip soundYouGotThis;
 
     private void Awake()
     {
@@ -25,11 +31,59 @@ public class SoundManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void PlaySound()
+    public void PlayPerfectSound()
     {
-        if (soundPerfect != null && !audioSource.isPlaying)  // Prevent overlapping
+        if (soundPerfect != null && !audioSource.isPlaying)
         {
             audioSource.PlayOneShot(soundPerfect);
+        }
+    }
+
+    public void PlayMissSound()
+    {
+        if (soundMiss != null && !audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(soundMiss);
+        }
+    }
+
+    public void PlayBoomSound()
+    {
+        if (soundBoom != null && !audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(soundBoom);
+        }
+    }
+
+    public void PlayGoodJobSound()
+    {
+        if (soundGoodJob != null && !audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(soundGoodJob);
+        }
+    }
+
+    public void PlayKeepSlaying()
+    {
+        if (soundKeepSlaying != null && !audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(soundKeepSlaying);
+        }
+    }
+
+    public void PlaySwooshBlingSlaying()
+    {
+        if (soundSwooshBling != null && !audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(soundSwooshBling);
+        }
+    }
+
+    public void PlayYouGotThis()
+    {
+        if (soundYouGotThis != null && !audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(soundYouGotThis);
         }
     }
 }

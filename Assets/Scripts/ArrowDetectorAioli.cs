@@ -80,7 +80,7 @@ public class ArrowDetectorAioli : MonoBehaviour
             {
                 Debug.Log("💯 Perfect Hit!");
                 GameManager.instance.PerfectHit();
-                SoundManager.Instance.PlaySound();
+                SoundManager.Instance.PlayPerfectSound();
                 feedbackInstance = Instantiate(perfectHitText, transform.position, Quaternion.identity);
             }
 
@@ -105,6 +105,7 @@ public class ArrowDetectorAioli : MonoBehaviour
         {
             canBePressed = false;
             Debug.Log("❌ Missed Note!");
+            SoundManager.Instance.PlayMissSound();
             GameManager.instance.NoteMissed(gameObject);
 
             GameObject missInstance = Instantiate(missText, transform.position, Quaternion.identity);
