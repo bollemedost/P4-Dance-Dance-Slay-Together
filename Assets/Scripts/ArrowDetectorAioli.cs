@@ -80,6 +80,7 @@ public class ArrowDetectorAioli : MonoBehaviour
             {
                 Debug.Log("💯 Perfect Hit!");
                 GameManager.instance.PerfectHit();
+                SoundManager.Instance.PlaySound();
                 feedbackInstance = Instantiate(perfectHitText, transform.position, Quaternion.identity);
             }
 
