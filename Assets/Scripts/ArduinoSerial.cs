@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO.Ports;
 using System.Threading;
@@ -28,18 +28,27 @@ public class ArduinoSerial : MonoBehaviour
     {
         try
         {
-            serialPort = new SerialPort("COM7", 9600); //port for windows
-           // serialPort = new SerialPort("/dev/cu.usbmodem1101", 9600); //port for mac
+            string portName;
+
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
+            portName = "COM7"; // Replace with your Windows COM port
+#elif UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX
+            portName = "/dev/cu.usbmodem1101"; // Replace with your Mac port
+#else
+            portName = "COM7"; // Fallback default
+#endif
+
+            serialPort = new SerialPort(portName, 9600);
             serialPort.Open();
             serialPort.ReadTimeout = 100;
-            Debug.Log("Connected to Arduino");
+            Debug.Log($"✅ Connected to Arduino on port: {portName}");
 
             serialThread = new Thread(ReadSerial);
             serialThread.Start();
         }
         catch (Exception e)
         {
-            Debug.LogError("Failed to connect: " + e.Message);
+            Debug.LogError("❌ Failed to connect: " + e.Message);
         }
     }
 
