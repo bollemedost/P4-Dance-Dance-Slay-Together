@@ -13,7 +13,7 @@ public class ArrowSpawner : MonoBehaviour
     private List<float> beatTimes = new List<float>();
     private bool hasStarted = false;
 
-    public int playerNumber = 1; // NEW: Set to 1 for Player 1, 2 for Player 2 in Inspector!
+    public int playerNumber = 1; // Set to 1 for Player 1, 2 for Player 2 in Inspector
 
     void Start()
     {
@@ -59,12 +59,12 @@ public class ArrowSpawner : MonoBehaviour
         foreach (float beatTime in beatTimes)
         {
             yield return new WaitUntil(() => music.time >= beatTime - GetTravelTime());
-
-            SpawnArrow();
+            int arrowType = Random.Range(0, 4);
+            SpawnArrow(arrowType);
         }
     }
 
-    public void SpawnArrow()
+    public void SpawnArrow(int arrowType)
     {
         if (arrowPrefabs.Length != 4 || spawnPoints.Length != 4)
         {
@@ -72,12 +72,9 @@ public class ArrowSpawner : MonoBehaviour
             return;
         }
 
-        int arrowType = Random.Range(0, 4); // 0 = Left, 1 = Down, 2 = Up, 3 = Right
         Transform spawnPoint = spawnPoints[arrowType];
-
         GameObject newArrow = Instantiate(arrowPrefabs[arrowType], spawnPoint.position, Quaternion.identity);
 
-        // Assign player number
         ArrowDetectorAioli detector = newArrow.GetComponent<ArrowDetectorAioli>();
         if (detector != null)
         {

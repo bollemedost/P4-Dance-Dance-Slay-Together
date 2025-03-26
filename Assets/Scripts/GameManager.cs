@@ -7,9 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public AudioSource theMusic;
     public bool startPlaying;
-    //public ArrowScrollerAioli theArrowScroller;
-
-    public static GameManager instance; // Singleton pattern
+    public static GameManager instance;
 
     public int currentScore;
     public int scorePerNote = 100;
@@ -26,13 +24,14 @@ public class GameManager : MonoBehaviour
     public BeatLoader beatLoader;
     public ArrowSpawner[] arrowSpawner;
     private int nextBeatIndex = 0;
-    private float delayTime = 5.5f; // Delay before music starts
+    private float delayTime = 5.5f;
 
-    // Hit Tracking Variables
     public int normalHits = 0;
     public int goodHits = 0;
     public int perfectHits = 0;
     public int missedNotes = 0;
+
+    private System.Random random;
 
     void Start()
     {
@@ -50,6 +49,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("ArrowSpawner is not assigned in GameManager!");
         }
+
+        random = new System.Random();
     }
 
     void Update()
@@ -59,12 +60,7 @@ public class GameManager : MonoBehaviour
             if (Input.anyKeyDown)
             {
                 startPlaying = true;
-                //theArrowScroller.hasStarted = true;
-
-                // Start arrows immediately
                 StartCoroutine(SpawnArrowsOnBeat());
-
-                // Delay the music
                 StartCoroutine(StartMusicWithDelay());
             }
         }
@@ -74,7 +70,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"Waiting {delayTime} seconds before starting the music...");
         yield return new WaitForSeconds(delayTime);
-
         theMusic.Play();
     }
 
@@ -97,10 +92,12 @@ public class GameManager : MonoBehaviour
                 yield return null;
             }
 
+            int arrowType = random.Next(0, 4);
             foreach (ArrowSpawner spawner in arrowSpawner)
             {
-                spawner.SpawnArrow();
+                spawner.SpawnArrow(arrowType);
             }
+
             nextBeatIndex++;
         }
     }
@@ -117,7 +114,6 @@ public class GameManager : MonoBehaviour
         if (currentMultiplier - 1 < multiplierThresholds.Length)
         {
             multiplierTracker++;
-
             if (multiplierThresholds[currentMultiplier - 1] <= multiplierTracker)
             {
                 multiplierTracker = 0;
@@ -132,7 +128,7 @@ public class GameManager : MonoBehaviour
     public void NormalHit()
     {
         currentScore += scorePerNote * currentMultiplier;
-        normalHits++; // Track normal hits
+        normalHits++;
         Debug.Log($"Normal Hit Count: {normalHits}");
         NoteHit();
     }
@@ -140,7 +136,7 @@ public class GameManager : MonoBehaviour
     public void GoodHit()
     {
         currentScore += scorePerGoodNote * currentMultiplier;
-        goodHits++; // Track good hits
+        goodHits++;
         Debug.Log($"Good Hit Count: {goodHits}");
         NoteHit();
     }
@@ -148,7 +144,7 @@ public class GameManager : MonoBehaviour
     public void PerfectHit()
     {
         currentScore += scorePerPerfectNote * currentMultiplier;
-        perfectHits++; // Track perfect hits
+        perfectHits++;
         Debug.Log($"Perfect Hit Count: {perfectHits}");
         NoteHit();
     }
@@ -161,7 +157,7 @@ public class GameManager : MonoBehaviour
         multiplierTracker = 0;
         multiplierText.text = "Multiplier: x" + currentMultiplier;
 
-        missedNotes++; // Track missed notes
+        missedNotes++;
         Debug.Log($"Missed Note Count: {missedNotes}");
 
         if (missedArrow != null)
