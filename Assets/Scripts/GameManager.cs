@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public BeatLoader beatLoader;
     public ArrowSpawner[] arrowSpawner;
     private int nextBeatIndex = 0;
-    private float delayTime = 5.5f;
+    private float delayTime = 5.524f;
 
     public int normalHits = 0;
     public int goodHits = 0;
@@ -34,11 +34,13 @@ public class GameManager : MonoBehaviour
     private System.Random random;
 
     public Slider pointSlider;
-    public Image[] starImages; // array with 5 star images
-    public int[] starThresholds; // e.g., [500, 1000, 2000, 3000, 4000]
-    public GameObject[] starOutlines; // Drag Star1Outline, Star2Outline, etc. into this array in the inspector
+    public Image[] starImages;
+    public int[] starThresholds;
+    public GameObject[] starOutlines;
 
     private bool[] starActivated;
+
+    private float gameStartTime;
 
     void Start()
     {
@@ -65,7 +67,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < starOutlines.Length; i++)
         {
-            Transform fillStar = starOutlines[i].transform.Find($"Star{i+1}Fill");
+            Transform fillStar = starOutlines[i].transform.Find($"Star{i + 1}Fill");
             if (fillStar != null)
             {
                 fillStar.gameObject.SetActive(false);
@@ -81,6 +83,7 @@ public class GameManager : MonoBehaviour
             if (Input.anyKeyDown)
             {
                 startPlaying = true;
+                gameStartTime = Time.timeSinceLevelLoad;
                 StartCoroutine(SpawnArrowsOnBeat());
                 StartCoroutine(StartMusicWithDelay());
             }
@@ -91,7 +94,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"Waiting {delayTime} seconds before starting the music...");
 
-        // 🧊 Pre-warm the audio system
+        // Pre-warm audio system
         theMusic.volume = 0f;
         theMusic.Play();
         theMusic.Pause();
@@ -99,7 +102,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(delayTime - 0.1f);
 
         theMusic.volume = 1f;
-        theMusic.UnPause(); // Lag-free playback
+        theMusic.UnPause(); // Sample-perfect resume
     }
 
     IEnumerator SpawnArrowsOnBeat()
@@ -114,17 +117,18 @@ public class GameManager : MonoBehaviour
 
         while (nextBeatIndex < beatTimes.Count)
         {
-            float beatTime = beatTimes[nextBeatIndex] - GetTravelTime();
+            float beatTime = beatTimes[nextBeatIndex];
+            float spawnTime = beatTime - GetTravelTime();
 
-            // ⛔ Skip if the beat has already passed
-            if (Time.timeSinceLevelLoad > beatTime)
+            // Skip spawning if arrow would appear too early (e.g., within first second of game)
+            if (spawnTime < 1.0f)
             {
+                Debug.Log($"⏩ Skipped beat at {beatTime}s (too early)");
                 nextBeatIndex++;
                 continue;
             }
 
-            // ✅ Wait until the right time
-            while (Time.timeSinceLevelLoad < beatTime)
+            while (Time.timeSinceLevelLoad - gameStartTime < spawnTime)
             {
                 yield return null;
             }
@@ -138,6 +142,7 @@ public class GameManager : MonoBehaviour
             nextBeatIndex++;
         }
     }
+
 
     float GetTravelTime()
     {
@@ -209,27 +214,25 @@ public class GameManager : MonoBehaviour
     {
         pointSlider.value = currentScore;
 
-       for (int i = 0; i < starOutlines.Length; i++)
-    {
-        Transform fillStar = starOutlines[i].transform.Find($"Star{i+1}Fill");
-        if (fillStar != null)
+        for (int i = 0; i < starOutlines.Length; i++)
         {
-            bool shouldBeActive = pointSlider.value >= starThresholds[i];
-            fillStar.gameObject.SetActive(shouldBeActive);
-
-            if (shouldBeActive && !starActivated[i])
+            Transform fillStar = starOutlines[i].transform.Find($"Star{i + 1}Fill");
+            if (fillStar != null)
             {
-                StarPopAnimation pop = fillStar.GetComponent<StarPopAnimation>();
-                if (pop != null)
-                {
-                    pop.PlayPop();
-                }
+                bool shouldBeActive = pointSlider.value >= starThresholds[i];
+                fillStar.gameObject.SetActive(shouldBeActive);
 
-                starActivated[i] = true;
+                if (shouldBeActive && !starActivated[i])
+                {
+                    StarPopAnimation pop = fillStar.GetComponent<StarPopAnimation>();
+                    if (pop != null)
+                    {
+                        pop.PlayPop();
+                    }
+
+                    starActivated[i] = true;
+                }
             }
         }
     }
-
-    }
-
 }
