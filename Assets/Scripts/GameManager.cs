@@ -69,8 +69,16 @@ public class GameManager : MonoBehaviour
     IEnumerator StartMusicWithDelay()
     {
         Debug.Log($"Waiting {delayTime} seconds before starting the music...");
-        yield return new WaitForSeconds(delayTime);
+
+        // 🧊 Pre-warm the audio system
+        theMusic.volume = 0f;
         theMusic.Play();
+        theMusic.Pause();
+
+        yield return new WaitForSeconds(delayTime - 0.1f);
+
+        theMusic.volume = 1f;
+        theMusic.UnPause(); // Lag-free playback
     }
 
     IEnumerator SpawnArrowsOnBeat()
@@ -87,6 +95,14 @@ public class GameManager : MonoBehaviour
         {
             float beatTime = beatTimes[nextBeatIndex] - GetTravelTime();
 
+            // ⛔ Skip if the beat has already passed
+            if (Time.timeSinceLevelLoad > beatTime)
+            {
+                nextBeatIndex++;
+                continue;
+            }
+
+            // ✅ Wait until the right time
             while (Time.timeSinceLevelLoad < beatTime)
             {
                 yield return null;
