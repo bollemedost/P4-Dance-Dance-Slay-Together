@@ -44,57 +44,57 @@ public class SoundManager : MonoBehaviour
 
     public void PlayPerfectSound()
     {
-        if (soundPerfect != null && !audioSource.isPlaying)
+        if (soundPerfect != null)
         {
-            audioSource.PlayOneShot(soundPerfect, volumePerfect);
+            AudioSource.PlayClipAtPoint(soundPerfect, Vector3.zero, volumePerfect);
         }
     }
 
     public void PlayMissSound()
     {
-        if (soundMiss != null && !audioSource.isPlaying)
+        if (soundMiss != null)
         {
-            audioSource.PlayOneShot(soundMiss, volumeMiss);
+            AudioSource.PlayClipAtPoint(soundMiss, Vector3.zero, volumeMiss);
         }
     }
 
     public void PlayBoomSound()
     {
-        if (soundBoom != null && !audioSource.isPlaying)
+        if (soundBoom != null)
         {
-            audioSource.PlayOneShot(soundBoom, volumeBoom);
+            AudioSource.PlayClipAtPoint(soundBoom, Vector3.zero, volumeBoom);
         }
     }
 
     public void PlayGoodJobSound()
     {
-        if (soundGoodJob != null && !audioSource.isPlaying)
+        if (soundGoodJob != null)
         {
-            audioSource.PlayOneShot(soundGoodJob, volumeGoodJob);
+            AudioSource.PlayClipAtPoint(soundGoodJob, Vector3.zero, volumeGoodJob);
         }
     }
 
     public void PlayKeepSlaying()
     {
-        if (soundKeepSlaying != null && !audioSource.isPlaying)
+        if (soundKeepSlaying != null)
         {
-            audioSource.PlayOneShot(soundKeepSlaying, volumeKeepSlaying);
+            AudioSource.PlayClipAtPoint(soundKeepSlaying, Vector3.zero, volumeKeepSlaying);
         }
     }
 
     public void PlaySwooshBlingSlaying()
     {
-        if (soundSwooshBling != null && !audioSource.isPlaying)
+        if (soundSwooshBling != null)
         {
-            audioSource.PlayOneShot(soundSwooshBling, volumeSwooshBling);
+            AudioSource.PlayClipAtPoint(soundSwooshBling, Vector3.zero, volumeSwooshBling);
         }
     }
 
     public void PlayYouGotThis()
     {
-        if (soundYouGotThis != null && !audioSource.isPlaying)
+        if (soundYouGotThis != null)
         {
-            audioSource.PlayOneShot(soundYouGotThis, volumeYouGotThis);
+            AudioSource.PlayClipAtPoint(soundYouGotThis, Vector3.zero, volumeYouGotThis);
         }
     }
 }
