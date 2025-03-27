@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class StarPopAnimation : MonoBehaviour
 {
-    public float popScale = 1.3f;
-    public float popDuration = 0.2f;
+    public float popScale = 2f;
+    public float popDuration = 0.4f;
 
     private Vector3 originalScale;
     private bool hasPopped = false;
