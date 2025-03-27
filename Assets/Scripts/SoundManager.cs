@@ -5,6 +5,8 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance;
 
     private AudioSource audioSource;
+
+    [Header("Sound Clips")]
     public AudioClip soundPerfect;
     public AudioClip soundMiss;
     public AudioClip soundBoom;
@@ -12,6 +14,15 @@ public class SoundManager : MonoBehaviour
     public AudioClip soundKeepSlaying;
     public AudioClip soundSwooshBling;
     public AudioClip soundYouGotThis;
+
+    [Header("Volume Settings")]
+    [Range(0f, 1f)] public float volumePerfect = 1f;
+    [Range(0f, 1f)] public float volumeMiss = 1f;
+    [Range(0f, 1f)] public float volumeBoom = 1f;
+    [Range(0f, 1f)] public float volumeGoodJob = 1f;
+    [Range(0f, 1f)] public float volumeKeepSlaying = 1f;
+    [Range(0f, 1f)] public float volumeSwooshBling = 1f;
+    [Range(0f, 1f)] public float volumeYouGotThis = 1f;
 
     private void Awake()
     {
@@ -35,7 +46,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundPerfect != null && !audioSource.isPlaying)
         {
-            audioSource.PlayOneShot(soundPerfect);
+            audioSource.PlayOneShot(soundPerfect, volumePerfect);
         }
     }
 
@@ -43,7 +54,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundMiss != null && !audioSource.isPlaying)
         {
-            audioSource.PlayOneShot(soundMiss);
+            audioSource.PlayOneShot(soundMiss, volumeMiss);
         }
     }
 
@@ -51,7 +62,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundBoom != null && !audioSource.isPlaying)
         {
-            audioSource.PlayOneShot(soundBoom);
+            audioSource.PlayOneShot(soundBoom, volumeBoom);
         }
     }
 
@@ -59,7 +70,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundGoodJob != null && !audioSource.isPlaying)
         {
-            audioSource.PlayOneShot(soundGoodJob);
+            audioSource.PlayOneShot(soundGoodJob, volumeGoodJob);
         }
     }
 
@@ -67,7 +78,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundKeepSlaying != null && !audioSource.isPlaying)
         {
-            audioSource.PlayOneShot(soundKeepSlaying);
+            audioSource.PlayOneShot(soundKeepSlaying, volumeKeepSlaying);
         }
     }
 
@@ -75,7 +86,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundSwooshBling != null && !audioSource.isPlaying)
         {
-            audioSource.PlayOneShot(soundSwooshBling);
+            audioSource.PlayOneShot(soundSwooshBling, volumeSwooshBling);
         }
     }
 
@@ -83,7 +94,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundYouGotThis != null && !audioSource.isPlaying)
         {
-            audioSource.PlayOneShot(soundYouGotThis);
+            audioSource.PlayOneShot(soundYouGotThis, volumeYouGotThis);
         }
     }
 }

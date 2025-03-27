@@ -78,6 +78,9 @@ public class ArduinoSerial : MonoBehaviour
                 string message = messageQueue.Dequeue();
                 Debug.Log("Received: " + message);
 
+                // 🔊 Play boom sound on any valid pad press
+                SoundManager.Instance?.PlayBoomSound();
+
                 // Player 1
                 if (message == "Left1") OnLeft1Pressed?.Invoke();
                 if (message == "Down1") OnDown1Pressed?.Invoke();
