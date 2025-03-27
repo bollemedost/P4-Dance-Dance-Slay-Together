@@ -6290,7 +6290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4181096793300992643, guid: b229bc134045b3b4db217d15258456ff, type: 3}
       propertyPath: m_Name
-      value: SlayParticlesSmolGreen
+      value: SlayParticlesSmolBrat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6405,6 +6405,10 @@ PrefabInstance:
     - target: {fileID: 6256375038471870978, guid: 6e5caac9b9b7ae840a35c4b042147eff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119019314055377454, guid: 6e5caac9b9b7ae840a35c4b042147eff, type: 3}
+      propertyPath: lengthInSec
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
