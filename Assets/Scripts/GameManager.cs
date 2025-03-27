@@ -33,6 +33,13 @@ public class GameManager : MonoBehaviour
 
     private System.Random random;
 
+    public Slider pointSlider;
+    public Image[] starImages; // array with 5 star images
+    public int[] starThresholds; // e.g., [500, 1000, 2000, 3000, 4000]
+    public GameObject[] starOutlines; // Drag Star1Outline, Star2Outline, etc. into this array in the inspector
+
+    private bool[] starActivated;
+
     void Start()
     {
         instance = this;
@@ -51,6 +58,20 @@ public class GameManager : MonoBehaviour
         }
 
         random = new System.Random();
+
+        pointSlider.minValue = 0;
+        pointSlider.maxValue = starThresholds[starThresholds.Length - 1];
+        pointSlider.value = 0;
+
+        for (int i = 0; i < starOutlines.Length; i++)
+        {
+            Transform fillStar = starOutlines[i].transform.Find($"Star{i+1}Fill");
+            if (fillStar != null)
+            {
+                fillStar.gameObject.SetActive(false);
+            }
+        }
+        starActivated = new bool[starOutlines.Length];
     }
 
     void Update()
@@ -123,6 +144,8 @@ public class GameManager : MonoBehaviour
 
         scoreText.text = currentScore.ToString();
         multiplierText.text = "Multiplier: x" + currentMultiplier;
+
+        UpdateSliderAndStars();
     }
 
     public void NormalHit()
@@ -165,4 +188,32 @@ public class GameManager : MonoBehaviour
             Destroy(missedArrow);
         }
     }
+
+    void UpdateSliderAndStars()
+    {
+        pointSlider.value = currentScore;
+
+       for (int i = 0; i < starOutlines.Length; i++)
+    {
+        Transform fillStar = starOutlines[i].transform.Find($"Star{i+1}Fill");
+        if (fillStar != null)
+        {
+            bool shouldBeActive = pointSlider.value >= starThresholds[i];
+            fillStar.gameObject.SetActive(shouldBeActive);
+
+            if (shouldBeActive && !starActivated[i])
+            {
+                StarPopAnimation pop = fillStar.GetComponent<StarPopAnimation>();
+                if (pop != null)
+                {
+                    pop.PlayPop();
+                }
+
+                starActivated[i] = true;
+            }
+        }
+    }
+
+    }
+
 }
