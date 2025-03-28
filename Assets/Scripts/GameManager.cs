@@ -88,6 +88,13 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(StartMusicWithDelay());
             }
         }
+
+        // If music has finished playing
+        if (startPlaying && !theMusic.isPlaying && theMusic.time > 1f)
+        {
+            HighscoreManager.SaveHighscore(currentScore);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("HighScore");
+        }
     }
 
     IEnumerator StartMusicWithDelay()
