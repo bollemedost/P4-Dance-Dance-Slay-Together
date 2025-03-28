@@ -14,6 +14,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip soundKeepSlaying;
     public AudioClip soundSwooshBling;
     public AudioClip soundYouGotThis;
+    public AudioClip soundStart;
+    public AudioClip soundMagicFairy;
 
     [Header("Volume Settings")]
     [Range(0f, 1f)] public float volumePerfect = 1f;
@@ -23,6 +25,8 @@ public class SoundManager : MonoBehaviour
     [Range(0f, 1f)] public float volumeKeepSlaying = 1f;
     [Range(0f, 1f)] public float volumeSwooshBling = 1f;
     [Range(0f, 1f)] public float volumeYouGotThis = 1f;
+    [Range(0f, 1f)] public float volumeStart = 1f;
+    [Range(0f, 1f)] public float volumeMagicFairy = 1f;
 
     private void Awake()
     {
@@ -95,6 +99,22 @@ public class SoundManager : MonoBehaviour
         if (soundYouGotThis != null)
         {
             AudioSource.PlayClipAtPoint(soundYouGotThis, Vector3.zero, volumeYouGotThis);
+        }
+    }
+
+    public void PlayStart()
+    {
+        if (soundYouGotThis != null)
+        {
+            AudioSource.PlayClipAtPoint(soundStart, Vector3.zero, volumeStart);
+        }
+    }
+
+    public void PlayStarFairy()
+    {
+        if (soundYouGotThis != null)
+        {
+            AudioSource.PlayClipAtPoint(soundMagicFairy, Vector3.zero, volumeMagicFairy);
         }
     }
 }
