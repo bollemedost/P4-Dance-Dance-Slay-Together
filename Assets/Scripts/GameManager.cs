@@ -42,13 +42,19 @@ public class GameManager : MonoBehaviour
 
     private float gameStartTime;
 
+    public ParticleSystem[] perfectHitParticles;
+    public ParticleSystem[] goodHitParticles;
+    public ParticleSystem[] normalHitParticles;
+    public ParticleSystem[] multiplierIncreaseParticles;
+    public ParticleSystem[] starRewardParticles;
+
     void Start()
     {
         instance = this;
 
         scoreText.text = "0";
         currentMultiplier = 1;
-        multiplierText.text = "Multiplier: x" + currentMultiplier;
+        multiplierText.text = "x" + currentMultiplier;
 
         if (beatLoader == null)
         {
@@ -150,7 +156,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     float GetTravelTime()
     {
         return 1.5f;
@@ -160,6 +165,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Hit On Time");
 
+        bool multiplierIncreased = false;
+
         if (currentMultiplier - 1 < multiplierThresholds.Length)
         {
             multiplierTracker++;
@@ -167,20 +174,31 @@ public class GameManager : MonoBehaviour
             {
                 multiplierTracker = 0;
                 currentMultiplier++;
+                multiplierIncreased = true;
             }
         }
 
+        if (multiplierIncreased && multiplierIncreaseParticles != null)
+        {
+            PlayRandomParticle(multiplierIncreaseParticles);
+        }
+
         scoreText.text = currentScore.ToString();
-        multiplierText.text = "Multiplier: x" + currentMultiplier;
+        multiplierText.text = "x" + currentMultiplier;
 
         UpdateSliderAndStars();
     }
+
 
     public void NormalHit()
     {
         currentScore += scorePerNote * currentMultiplier;
         normalHits++;
         Debug.Log($"Normal Hit Count: {normalHits}");
+
+        if (normalHitParticles != null)
+        PlayRandomParticle(normalHitParticles);
+        
         NoteHit();
     }
 
@@ -189,6 +207,10 @@ public class GameManager : MonoBehaviour
         currentScore += scorePerGoodNote * currentMultiplier;
         goodHits++;
         Debug.Log($"Good Hit Count: {goodHits}");
+
+        if (goodHitParticles != null)
+        PlayRandomParticle(goodHitParticles);
+
         NoteHit();
     }
 
@@ -197,6 +219,10 @@ public class GameManager : MonoBehaviour
         currentScore += scorePerPerfectNote * currentMultiplier;
         perfectHits++;
         Debug.Log($"Perfect Hit Count: {perfectHits}");
+
+        if (perfectHitParticles != null)
+        PlayRandomParticle(perfectHitParticles);
+
         NoteHit();
     }
 
@@ -206,7 +232,7 @@ public class GameManager : MonoBehaviour
 
         currentMultiplier = 1;
         multiplierTracker = 0;
-        multiplierText.text = "Multiplier: x" + currentMultiplier;
+        multiplierText.text = "x" + currentMultiplier;
 
         missedNotes++;
         Debug.Log($"Missed Note Count: {missedNotes}");
@@ -217,7 +243,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void UpdateSliderAndStars()
+  void UpdateSliderAndStars()
     {
         pointSlider.value = currentScore;
 
@@ -237,9 +263,33 @@ public class GameManager : MonoBehaviour
                         pop.PlayPop();
                     }
 
+                    // Play random star reward particle
+                    if (starRewardParticles != null && starRewardParticles.Length > 0)
+                    {
+                        int rand = Random.Range(0, starRewardParticles.Length);
+                        ParticleSystem ps = starRewardParticles[rand];
+                        if (ps != null)
+                        {
+                            ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                            ps.Play();
+                            Debug.Log($"⭐ Played star reward particle: {ps.name}");
+                        }
+                    }
+
                     starActivated[i] = true;
                 }
             }
+        }
+    }
+
+
+    void PlayRandomParticle(ParticleSystem[] particles)
+    {
+        if (particles != null && particles.Length > 0)
+        {
+            int index = Random.Range(0, particles.Length);
+            if (particles[index] != null)
+                particles[index].Play();
         }
     }
 }

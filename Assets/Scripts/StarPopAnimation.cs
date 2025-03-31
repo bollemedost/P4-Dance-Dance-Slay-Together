@@ -4,7 +4,6 @@ public class StarPopAnimation : MonoBehaviour
 {
     public float popScale = 2f;
     public float popDuration = 0.4f;
-    public ParticleSystem sparkleParticles;
 
     private Vector3 originalScale;
     private bool hasPopped = false;
@@ -19,13 +18,6 @@ public class StarPopAnimation : MonoBehaviour
         if (!hasPopped)
         {
             hasPopped = true;
-
-            // Play particles
-            if (sparkleParticles != null)
-            {
-                sparkleParticles.Play();
-            }
-
             StartCoroutine(AnimatePop());
         }
     }
