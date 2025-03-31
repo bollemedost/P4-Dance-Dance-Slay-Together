@@ -86,7 +86,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlaySwooshBlingSlaying()
+    public void PlaySwooshBling()
     {
         if (soundSwooshBling != null)
         {

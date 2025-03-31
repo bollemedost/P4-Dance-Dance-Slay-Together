@@ -13706,14 +13706,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundPerfect: {fileID: 8300000, guid: f66e79f58fb6747e7bd917ffc89111dc, type: 3}
-  soundMiss: {fileID: 8300000, guid: 81a0c433bbe2d44ac989e96dc76e2cb8, type: 3}
+  soundMiss: {fileID: 8300000, guid: 06b0962f12e74c54e921c76917db7f93, type: 3}
   soundBoom: {fileID: 8300000, guid: 733e05a7980874d2c9387e2a00e7e229, type: 3}
   soundGoodJob: {fileID: 8300000, guid: f03a33a3e1b3a43eaaf7cb3b299a5c86, type: 3}
   soundKeepSlaying: {fileID: 8300000, guid: 5aeca5a5e324b452c87711d4f86a49f8, type: 3}
   soundSwooshBling: {fileID: 8300000, guid: 95dcb5de0b57141a0a5bccf1687c1bed, type: 3}
   soundYouGotThis: {fileID: 8300000, guid: 65b9bcd31e21d48a4a626a1b4d4a39a9, type: 3}
-  soundStart: {fileID: 0}
-  soundMagicFairy: {fileID: 0}
+  soundStart: {fileID: 8300000, guid: 377f1ebf75c794cff8930f158f100389, type: 3}
+  soundMagicFairy: {fileID: 8300000, guid: abc5fc6c7ecdb490f8d099606d7b22b4, type: 3}
   volumePerfect: 1
   volumeMiss: 1
   volumeBoom: 1

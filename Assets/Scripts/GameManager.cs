@@ -181,6 +181,8 @@ public class GameManager : MonoBehaviour
         if (multiplierIncreased && multiplierIncreaseParticles != null)
         {
             PlayRandomParticle(multiplierIncreaseParticles);
+            SoundManager.Instance.PlaySwooshBling();
+            SoundManager.Instance.PlayKeepSlaying();
         }
 
         scoreText.text = currentScore.ToString();
@@ -272,6 +274,7 @@ public class GameManager : MonoBehaviour
                         {
                             ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
                             ps.Play();
+                            SoundManager.Instance.PlayStarFairy();
                             Debug.Log($"⭐ Played star reward particle: {ps.name}");
                         }
                     }
