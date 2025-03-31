@@ -7,6 +7,11 @@ public class PopupUISlay : MonoBehaviour
     public CanvasGroup popupCanvasGroup;
     public float fadeDuration = 0.5f;
 
+    void Start()
+    {
+        ShowPopup(); // Optional: show popup on scene load
+    }
+
     public void ShowPopup()
     {
         StartCoroutine(FadeIn());
@@ -14,7 +19,9 @@ public class PopupUISlay : MonoBehaviour
 
     public void HidePopup()
     {
-        StartCoroutine(FadeOut());
+        popupCanvasGroup.alpha = 0f;
+        popupCanvasGroup.interactable = false;
+        popupCanvasGroup.blocksRaycasts = false;
     }
 
     IEnumerator FadeIn()
@@ -29,21 +36,6 @@ public class PopupUISlay : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        popupCanvasGroup.alpha = 1;
-    }
-
-    IEnumerator FadeOut()
-    {
-        popupCanvasGroup.interactable = false;
-        popupCanvasGroup.blocksRaycasts = false;
-
-        float elapsedTime = 0f;
-        while (elapsedTime < fadeDuration)
-        {
-            popupCanvasGroup.alpha = Mathf.Lerp(1, 0, elapsedTime / fadeDuration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        popupCanvasGroup.alpha = 0;
+        popupCanvasGroup.alpha = 1f;
     }
 }
