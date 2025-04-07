@@ -6,6 +6,8 @@ public class SoundManager : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public float volume = 2f;
+
     [Header("Sound Clips")]
     public AudioClip soundPerfect;
     public AudioClip soundMiss;
@@ -82,7 +84,8 @@ public class SoundManager : MonoBehaviour
     {
         if (soundKeepSlaying != null)
         {
-            AudioSource.PlayClipAtPoint(soundKeepSlaying, Vector3.zero, volumeKeepSlaying);
+            //AudioSource.PlayClipAtPoint(soundKeepSlaying, Vector3.zero, volumeKeepSlaying);
+            //AudioSource.PlayOneShot(soundKeepSlaying, volume);
         }
     }
 

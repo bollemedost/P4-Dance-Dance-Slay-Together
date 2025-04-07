@@ -13710,6 +13710,7 @@ MonoBehaviour:
   normalHitInterval: 8
   goodHitInterval: 8
   perfectHitInterval: 8
+  multiplierHitInterval: 2
 --- !u!4 &1014417613
 Transform:
   m_ObjectHideFlags: 0

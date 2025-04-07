@@ -193,8 +193,8 @@ public class GameManager : MonoBehaviour
             if (totalHits % multiplierHitInterval == 0)
             {
                 PlayRandomParticle(multiplierIncreaseParticles);
+                SoundManager.Instance.PlaySwooshBling();
             }
-            SoundManager.Instance.PlayKeepSlaying();
         }
 
         scoreText.text = currentScore.ToString();
@@ -219,9 +219,6 @@ public class GameManager : MonoBehaviour
             {
                 PlayRandomParticle(normalHitParticles);
             }
-
-            SoundManager.Instance.PlaySwooshBling();
-            SoundManager.Instance.PlayKeepSlaying();
         }
 
         NoteHit(); // Call NoteHit() to handle multiplier and score
@@ -242,9 +239,6 @@ public class GameManager : MonoBehaviour
             {
                 PlayRandomParticle(goodHitParticles);
             }
-
-            SoundManager.Instance.PlaySwooshBling();
-            SoundManager.Instance.PlayKeepSlaying();
         }
 
         NoteHit(); // Call NoteHit() to handle multiplier and score
@@ -266,9 +260,6 @@ public class GameManager : MonoBehaviour
             {
                 PlayRandomParticle(perfectHitParticles);
             }
-
-            SoundManager.Instance.PlaySwooshBling();
-            SoundManager.Instance.PlayKeepSlaying();
         }
 
         NoteHit(); // Call NoteHit() to handle multiplier and score
@@ -321,7 +312,7 @@ public class GameManager : MonoBehaviour
                         {
                             ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
                             ps.Play();
-                            SoundManager.Instance.PlayStarFairy();
+                            //SoundManager.Instance.PlayStarFairy();
                             Debug.Log($"⭐ Played star reward particle: {ps.name}");
                         }
                     }
