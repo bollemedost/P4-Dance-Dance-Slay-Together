@@ -49,10 +49,11 @@ public class GameManager : MonoBehaviour
     public ParticleSystem[] starRewardParticles;
 
     private int totalHits = 0;
-    public int normalHitInterval = 3; // Set how often the normal hit particle plays
-    public int goodHitInterval = 3;   // Set how often the good hit particle plays
-    public int perfectHitInterval = 3; // Set how often the perfect hit particle plays
-    
+    public int normalHitInterval = 8; // Set how often the normal hit particle plays
+    public int goodHitInterval = 8;   // Set how often the good hit particle plays
+    public int perfectHitInterval = 8; // Set how often the perfect hit particle plays
+    public int multiplierHitInterval = 2; // Set how often the multiplier particle plays
+
 
     void Start()
     {
@@ -169,7 +170,7 @@ public class GameManager : MonoBehaviour
         return 1.5f;
     }
 
-    public void NoteHit()
+   public void NoteHit()
     {
         Debug.Log("Hit On Time");
 
@@ -186,11 +187,13 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Only play the multiplier particle when multiplier increases
+        // Only play the multiplier particle when multiplier increases and the interval is met
         if (multiplierIncreased && multiplierIncreaseParticles != null && multiplierIncreaseParticles.Length > 0)
         {
-            PlayRandomParticle(multiplierIncreaseParticles);
-            //SoundManager.Instance.PlaySwooshBling();
+            if (totalHits % multiplierHitInterval == 0)
+            {
+                PlayRandomParticle(multiplierIncreaseParticles);
+            }
             SoundManager.Instance.PlayKeepSlaying();
         }
 
@@ -199,7 +202,6 @@ public class GameManager : MonoBehaviour
 
         UpdateSliderAndStars();
     }
-
 
 
     public void NormalHit()
