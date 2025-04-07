@@ -98,9 +98,11 @@ public class GameManager : MonoBehaviour
         // If music has finished playing
         if (startPlaying && !theMusic.isPlaying && theMusic.time > 1f)
         {
-            HighscoreManager.SaveHighscore(currentScore);
-            UnityEngine.SceneManagement.SceneManager.LoadScene("HighScore");
+            TiborHighscoreManager.SaveHighscore(currentScore);
+            PlayerPrefs.SetInt("LastScore", currentScore); // Save current score for the highscore scene
+            UnityEngine.SceneManagement.SceneManager.LoadScene("TiborHighScore");
         }
+
     }
 
     IEnumerator StartMusicWithDelay()

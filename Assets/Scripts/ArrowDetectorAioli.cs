@@ -115,4 +115,29 @@ public class ArrowDetectorAioli : MonoBehaviour
             }
         }
     }
+
+    // ekstra til test - wasd
+    void Update()
+    {
+        if (!canBePressed) return;
+
+        if (playerNumber == 1)
+        {
+            if (keyToPress == KeyCode.LeftArrow && Input.GetKeyDown(KeyCode.A)) CheckPress();
+            if (keyToPress == KeyCode.DownArrow && Input.GetKeyDown(KeyCode.S)) CheckPress();
+            if (keyToPress == KeyCode.UpArrow && Input.GetKeyDown(KeyCode.W)) CheckPress();
+            if (keyToPress == KeyCode.RightArrow && Input.GetKeyDown(KeyCode.D)) CheckPress();
+        }
+
+        if (playerNumber == 2)
+        {
+            if (keyToPress == KeyCode.LeftArrow && Input.GetKeyDown(KeyCode.LeftArrow)) CheckPress();
+            if (keyToPress == KeyCode.DownArrow && Input.GetKeyDown(KeyCode.DownArrow)) CheckPress();
+            if (keyToPress == KeyCode.UpArrow && Input.GetKeyDown(KeyCode.UpArrow)) CheckPress();
+            if (keyToPress == KeyCode.RightArrow && Input.GetKeyDown(KeyCode.RightArrow)) CheckPress();
+        }
+    }
+
+
 }
+

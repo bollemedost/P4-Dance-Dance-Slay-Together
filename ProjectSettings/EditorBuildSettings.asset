@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Aioli.unity
     guid: 5f945bb18e28749988b20602ab8a94cd
   - enabled: 1
-    path: Assets/Scenes/Highscore.unity
+    path: Assets/Scenes/HighScore.unity
     guid: 6531681c06bb0441d871cbb31d8f671b
+  - enabled: 1
+    path: Assets/Scenes/TiborHighscore.unity
+    guid: 9913ee88c57008143a687ea842d1fd56
   m_configObjects: {}
