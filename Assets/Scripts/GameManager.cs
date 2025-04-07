@@ -48,6 +48,12 @@ public class GameManager : MonoBehaviour
     public ParticleSystem[] multiplierIncreaseParticles;
     public ParticleSystem[] starRewardParticles;
 
+    private int totalHits = 0;
+    public int normalHitInterval = 3; // Set how often the normal hit particle plays
+    public int goodHitInterval = 3;   // Set how often the good hit particle plays
+    public int perfectHitInterval = 3; // Set how often the perfect hit particle plays
+    
+
     void Start()
     {
         instance = this;
@@ -180,10 +186,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (multiplierIncreased && multiplierIncreaseParticles != null)
+        // Only play the multiplier particle when multiplier increases
+        if (multiplierIncreased && multiplierIncreaseParticles != null && multiplierIncreaseParticles.Length > 0)
         {
             PlayRandomParticle(multiplierIncreaseParticles);
-            SoundManager.Instance.PlaySwooshBling();
+            //SoundManager.Instance.PlaySwooshBling();
             SoundManager.Instance.PlayKeepSlaying();
         }
 
@@ -194,41 +201,77 @@ public class GameManager : MonoBehaviour
     }
 
 
+
     public void NormalHit()
     {
         currentScore += scorePerNote * currentMultiplier;
         normalHits++;
+        totalHits++; // Increment the total hit counter
         Debug.Log($"Normal Hit Count: {normalHits}");
 
-        if (normalHitParticles != null)
-        PlayRandomParticle(normalHitParticles);
-        
-        NoteHit();
+        // Check if it's the set interval (e.g., every 3rd hit)
+        if (totalHits % normalHitInterval == 0)
+        {
+            // Play the normal hit particle system only for the set interval
+            if (normalHitParticles != null && normalHitParticles.Length > 0)
+            {
+                PlayRandomParticle(normalHitParticles);
+            }
+
+            SoundManager.Instance.PlaySwooshBling();
+            SoundManager.Instance.PlayKeepSlaying();
+        }
+
+        NoteHit(); // Call NoteHit() to handle multiplier and score
     }
 
-    public void GoodHit()
+
+  public void GoodHit()
     {
         currentScore += scorePerGoodNote * currentMultiplier;
         goodHits++;
         Debug.Log($"Good Hit Count: {goodHits}");
 
-        if (goodHitParticles != null)
-        PlayRandomParticle(goodHitParticles);
+        // Check if it's the set interval for good hits
+        if (totalHits % goodHitInterval == 0)
+        {
+            // Play the good hit particle system only for the set interval
+            if (goodHitParticles != null && goodHitParticles.Length > 0)
+            {
+                PlayRandomParticle(goodHitParticles);
+            }
 
-        NoteHit();
+            SoundManager.Instance.PlaySwooshBling();
+            SoundManager.Instance.PlayKeepSlaying();
+        }
+
+        NoteHit(); // Call NoteHit() to handle multiplier and score
     }
 
-    public void PerfectHit()
+
+  public void PerfectHit()
     {
         currentScore += scorePerPerfectNote * currentMultiplier;
         perfectHits++;
+        totalHits++; // Increment the total hit counter for all hits
         Debug.Log($"Perfect Hit Count: {perfectHits}");
 
-        if (perfectHitParticles != null)
-        PlayRandomParticle(perfectHitParticles);
+        // Check if it's the set interval (e.g., every 3rd hit)
+        if (totalHits % perfectHitInterval == 0)
+        {
+            // Play the perfect hit particle system only for the set interval
+            if (perfectHitParticles != null && perfectHitParticles.Length > 0)
+            {
+                PlayRandomParticle(perfectHitParticles);
+            }
 
-        NoteHit();
+            SoundManager.Instance.PlaySwooshBling();
+            SoundManager.Instance.PlayKeepSlaying();
+        }
+
+        NoteHit(); // Call NoteHit() to handle multiplier and score
     }
+
 
     public void NoteMissed(GameObject missedArrow)
     {

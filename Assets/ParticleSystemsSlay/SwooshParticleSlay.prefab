@@ -44,7 +44,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4914041751001573742}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
@@ -4842,7 +4842,7 @@ SortingGroup:
   m_GameObject: {fileID: 4914041751001573742}
   m_Enabled: 1
   m_SortingLayerID: 1962004063
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_SortAtRoot: 0
 --- !u!1 &6411326395973008233
