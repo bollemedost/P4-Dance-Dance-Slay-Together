@@ -13664,7 +13664,7 @@ MonoBehaviour:
   scorePerPerfectNote: 150
   currentMultiplier: 1
   multiplierTracker: 0
-  multiplierThresholds: 0f0000001e0000002d000000
+  multiplierThresholds: 050000000a0000000f000000
   scoreText: {fileID: 983333074}
   multiplierText: {fileID: 446584298}
   beatLoader: {fileID: 186321414}
@@ -13710,7 +13710,7 @@ MonoBehaviour:
   normalHitInterval: 8
   goodHitInterval: 8
   perfectHitInterval: 8
-  multiplierHitInterval: 2
+  multiplierHitInterval: 1
 --- !u!4 &1014417613
 Transform:
   m_ObjectHideFlags: 0
@@ -13756,6 +13756,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f31ba9867cf40f5be8fa31872704b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeKeepSlaying: 2
+  volumePerfect: 0.2
+  volumeMissSound: 0.1
+  volumeBoom: 10
+  volumeGoodJob: 1
+  volumeSwooshBling: 10
+  volumeYouGotThis: 1
+  volumeStart: 1
+  volumeStarFairy: 0.5
   soundPerfect: {fileID: 8300000, guid: f66e79f58fb6747e7bd917ffc89111dc, type: 3}
   soundMiss: {fileID: 8300000, guid: 06b0962f12e74c54e921c76917db7f93, type: 3}
   soundBoom: {fileID: 8300000, guid: 733e05a7980874d2c9387e2a00e7e229, type: 3}
@@ -13765,15 +13774,6 @@ MonoBehaviour:
   soundYouGotThis: {fileID: 8300000, guid: 65b9bcd31e21d48a4a626a1b4d4a39a9, type: 3}
   soundStart: {fileID: 8300000, guid: 377f1ebf75c794cff8930f158f100389, type: 3}
   soundMagicFairy: {fileID: 8300000, guid: abc5fc6c7ecdb490f8d099606d7b22b4, type: 3}
-  volumePerfect: 1
-  volumeMiss: 1
-  volumeBoom: 1
-  volumeGoodJob: 1
-  volumeKeepSlaying: 1
-  volumeSwooshBling: 1
-  volumeYouGotThis: 1
-  volumeStart: 1
-  volumeMagicFairy: 1
 --- !u!4 &1017244349
 Transform:
   m_ObjectHideFlags: 0

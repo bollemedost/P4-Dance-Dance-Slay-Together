@@ -6,7 +6,19 @@ public class SoundManager : MonoBehaviour
 
     private AudioSource audioSource;
 
-    public float volume = 2f;
+    [Header("Volume Settings")]
+    public float volumeKeepSlaying = 3f;
+    public float volumePerfect = 3f;
+    public float volumeMissSound = 3f;
+    public float volumeBoom = 3f;
+    public float volumeGoodJob = 3f;
+    public float volumeSwooshBling = 3f;
+    public float volumeYouGotThis = 3f;
+    public float volumeStart = 3f;
+    public float volumeStarFairy = 3f;
+
+
+
 
     [Header("Sound Clips")]
     public AudioClip soundPerfect;
@@ -18,17 +30,6 @@ public class SoundManager : MonoBehaviour
     public AudioClip soundYouGotThis;
     public AudioClip soundStart;
     public AudioClip soundMagicFairy;
-
-    [Header("Volume Settings")]
-    [Range(0f, 1f)] public float volumePerfect = 1f;
-    [Range(0f, 1f)] public float volumeMiss = 1f;
-    [Range(0f, 1f)] public float volumeBoom = 1f;
-    [Range(0f, 1f)] public float volumeGoodJob = 1f;
-    [Range(0f, 1f)] public float volumeKeepSlaying = 1f;
-    [Range(0f, 1f)] public float volumeSwooshBling = 1f;
-    [Range(0f, 1f)] public float volumeYouGotThis = 1f;
-    [Range(0f, 1f)] public float volumeStart = 1f;
-    [Range(0f, 1f)] public float volumeMagicFairy = 1f;
 
     private void Awake()
     {
@@ -52,7 +53,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundPerfect != null)
         {
-            AudioSource.PlayClipAtPoint(soundPerfect, Vector3.zero, volumePerfect);
+            audioSource.PlayOneShot(soundPerfect, volumePerfect);
         }
     }
 
@@ -60,7 +61,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundMiss != null)
         {
-            AudioSource.PlayClipAtPoint(soundMiss, Vector3.zero, volumeMiss);
+            audioSource.PlayOneShot(soundMiss, volumeMissSound);
         }
     }
 
@@ -68,7 +69,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundBoom != null)
         {
-            AudioSource.PlayClipAtPoint(soundBoom, Vector3.zero, volumeBoom);
+            audioSource.PlayOneShot(soundBoom, volumeBoom);
         }
     }
 
@@ -76,7 +77,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundGoodJob != null)
         {
-            AudioSource.PlayClipAtPoint(soundGoodJob, Vector3.zero, volumeGoodJob);
+            audioSource.PlayOneShot(soundGoodJob, volumeGoodJob);
         }
     }
 
@@ -84,8 +85,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundKeepSlaying != null)
         {
-            //AudioSource.PlayClipAtPoint(soundKeepSlaying, Vector3.zero, volumeKeepSlaying);
-            //AudioSource.PlayOneShot(soundKeepSlaying, volume);
+            audioSource.PlayOneShot(soundKeepSlaying, volumeKeepSlaying);
         }
     }
 
@@ -93,7 +93,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundSwooshBling != null)
         {
-            AudioSource.PlayClipAtPoint(soundSwooshBling, Vector3.zero, volumeSwooshBling);
+            audioSource.PlayOneShot(soundSwooshBling, volumeSwooshBling);
         }
     }
 
@@ -101,7 +101,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundYouGotThis != null)
         {
-            AudioSource.PlayClipAtPoint(soundYouGotThis, Vector3.zero, volumeYouGotThis);
+            audioSource.PlayOneShot(soundYouGotThis, volumeYouGotThis);
         }
     }
 
@@ -109,7 +109,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundYouGotThis != null)
         {
-            AudioSource.PlayClipAtPoint(soundStart, Vector3.zero, volumeStart);
+            audioSource.PlayOneShot(soundStart, volumeStart);
         }
     }
 
@@ -117,7 +117,7 @@ public class SoundManager : MonoBehaviour
     {
         if (soundYouGotThis != null)
         {
-            AudioSource.PlayClipAtPoint(soundMagicFairy, Vector3.zero, volumeMagicFairy);
+            audioSource.PlayOneShot(soundMagicFairy, volumeStarFairy);
         }
     }
 }

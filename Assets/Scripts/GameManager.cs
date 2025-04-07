@@ -193,7 +193,9 @@ public class GameManager : MonoBehaviour
             if (totalHits % multiplierHitInterval == 0)
             {
                 PlayRandomParticle(multiplierIncreaseParticles);
-                SoundManager.Instance.PlaySwooshBling();
+                SoundManager.Instance.PlayKeepSlaying();
+                SoundManager.Instance.PlayGoodJobSound();
+                SoundManager.Instance.PlayYouGotThis();
             }
         }
 
@@ -312,7 +314,7 @@ public class GameManager : MonoBehaviour
                         {
                             ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
                             ps.Play();
-                            //SoundManager.Instance.PlayStarFairy();
+                            SoundManager.Instance.PlayStarFairy();
                             Debug.Log($"⭐ Played star reward particle: {ps.name}");
                         }
                     }
