@@ -6,6 +6,8 @@ public class SoundManager : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private int lastMotivationalIndex = -1;
+
     [Header("Volume Settings")]
     public float volumeKeepSlaying = 3f;
     public float volumePerfect = 3f;
@@ -17,9 +19,6 @@ public class SoundManager : MonoBehaviour
     public float volumeStart = 3f;
     public float volumeStarFairy = 3f;
 
-
-
-
     [Header("Sound Clips")]
     public AudioClip soundPerfect;
     public AudioClip soundMiss;
@@ -30,6 +29,21 @@ public class SoundManager : MonoBehaviour
     public AudioClip soundYouGotThis;
     public AudioClip soundStart;
     public AudioClip soundMagicFairy;
+
+    [System.Serializable]
+    private struct MotivationalSound
+    {
+        public AudioClip clip;
+        public float volume;
+
+        public MotivationalSound(AudioClip clip, float volume)
+        {
+            this.clip = clip;
+            this.volume = volume;
+        }
+    }
+
+    private MotivationalSound[] motivationalSounds;
 
     private void Awake()
     {
@@ -47,6 +61,13 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
+        motivationalSounds = new MotivationalSound[]
+        {
+            new MotivationalSound(soundGoodJob, volumeGoodJob),
+            new MotivationalSound(soundKeepSlaying, volumeKeepSlaying),
+            new MotivationalSound(soundYouGotThis, volumeYouGotThis)
+        };
     }
 
     public void PlayPerfectSound()
@@ -89,19 +110,19 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlaySwooshBling()
-    {
-        if (soundSwooshBling != null)
-        {
-            audioSource.PlayOneShot(soundSwooshBling, volumeSwooshBling);
-        }
-    }
-
     public void PlayYouGotThis()
     {
         if (soundYouGotThis != null)
         {
             audioSource.PlayOneShot(soundYouGotThis, volumeYouGotThis);
+        }
+    }
+
+    public void PlaySwooshBling()
+    {
+        if (soundSwooshBling != null)
+        {
+            audioSource.PlayOneShot(soundSwooshBling, volumeSwooshBling);
         }
     }
 
@@ -119,5 +140,41 @@ public class SoundManager : MonoBehaviour
         {
             audioSource.PlayOneShot(soundMagicFairy, volumeStarFairy);
         }
+    }
+
+    public void PlayRandomMotivationalSound()
+    {
+        var motivationalSounds = new (AudioClip clip, float volume)[]
+        {
+        (soundGoodJob, volumeGoodJob),
+        (soundKeepSlaying, volumeKeepSlaying),
+        (soundYouGotThis, volumeYouGotThis)
+        };
+
+        var validSounds = new System.Collections.Generic.List<(AudioClip clip, float volume, int index)>();
+
+        for (int i = 0; i < motivationalSounds.Length; i++)
+        {
+            if (motivationalSounds[i].clip != null)
+            {
+                validSounds.Add((motivationalSounds[i].clip, motivationalSounds[i].volume, i));
+            }
+        }
+
+        if (validSounds.Count == 0)
+        {
+            return;
+        }
+
+        int newIndex;
+        do
+        {
+            newIndex = Random.Range(0, validSounds.Count);
+        } while (validSounds[newIndex].index == lastMotivationalIndex && validSounds.Count > 1);
+
+        var chosen = validSounds[newIndex];
+        lastMotivationalIndex = chosen.index;
+
+        audioSource.PlayOneShot(chosen.clip, chosen.volume);
     }
 }

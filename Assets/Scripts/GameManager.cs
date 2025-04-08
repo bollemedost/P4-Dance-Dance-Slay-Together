@@ -193,9 +193,7 @@ public class GameManager : MonoBehaviour
             if (totalHits % multiplierHitInterval == 0)
             {
                 PlayRandomParticle(multiplierIncreaseParticles);
-                SoundManager.Instance.PlayKeepSlaying();
-                SoundManager.Instance.PlayGoodJobSound();
-                SoundManager.Instance.PlayYouGotThis();
+                SoundManager.Instance.PlayRandomMotivationalSound();
             }
         }
 

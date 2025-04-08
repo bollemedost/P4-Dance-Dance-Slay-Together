@@ -13760,9 +13760,9 @@ MonoBehaviour:
   volumePerfect: 0.2
   volumeMissSound: 0.1
   volumeBoom: 10
-  volumeGoodJob: 1
+  volumeGoodJob: 2
   volumeSwooshBling: 10
-  volumeYouGotThis: 1
+  volumeYouGotThis: 2
   volumeStart: 1
   volumeStarFairy: 0.5
   soundPerfect: {fileID: 8300000, guid: f66e79f58fb6747e7bd917ffc89111dc, type: 3}
