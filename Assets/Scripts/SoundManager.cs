@@ -30,6 +30,10 @@ public class SoundManager : MonoBehaviour
     public AudioClip soundStart;
     public AudioClip soundMagicFairy;
 
+    [Header("Cooldown Settings")]
+    public float boomCooldown = 0.3f;
+    private float lastBoomTime = -Mathf.Infinity;
+
     [System.Serializable]
     private struct MotivationalSound
     {
@@ -88,9 +92,13 @@ public class SoundManager : MonoBehaviour
 
     public void PlayBoomSound()
     {
-        if (soundBoom != null)
+        if (Time.time - lastBoomTime >= boomCooldown)
         {
-            audioSource.PlayOneShot(soundBoom, volumeBoom);
+            if (soundBoom != null)
+            {
+                audioSource.PlayOneShot(soundBoom, volumeBoom);
+                lastBoomTime = Time.time;
+            }
         }
     }
 
