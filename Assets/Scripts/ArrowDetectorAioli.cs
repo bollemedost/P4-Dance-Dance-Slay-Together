@@ -108,14 +108,18 @@ public class ArrowDetectorAioli : MonoBehaviour
             SoundManager.Instance.PlayMissSound();
             GameManager.instance.NoteMissed(gameObject);
 
-            GameObject missInstance = Instantiate(missText, transform.position, Quaternion.identity);
-            missInstance.tag = "MissFeedback"; // Added tag for cleanup
-            if (missInstance != null)
+            if (missText != null)
             {
+                GameObject missInstance = Instantiate(missText, transform.position, Quaternion.identity);
                 Destroy(missInstance, feedbackDuration);
+            }
+            else
+            {
+                Debug.LogWarning("missText is not assigned in the Inspector!");
             }
         }
     }
+
 
     // ekstra til test - wasd
     void Update()
