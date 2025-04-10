@@ -10,7 +10,8 @@ public class ButtonManager : MonoBehaviour
     public string easySceneName = "Aioli";
     public string mediumSceneName = "Aioli";
     public string hardSceneName = "Aioli";
-    public string tutorialSceneName = "Aioli";
+
+    public string backToMainMenu = "Main Menu";
 
     public void Start()
     {
@@ -37,8 +38,8 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene(hardSceneName); // Load EasyScene when Easy button is clicked
     }
 
-    public void OnTutorialButtonClick()
+    public void OnBackToMainMenu()
     {
-        SceneManager.LoadScene(tutorialSceneName); // Load EasyScene when Easy button is clicked
+        SceneManager.LoadScene(backToMainMenu); // Load EasyScene when Easy button is clicked
     }
 }

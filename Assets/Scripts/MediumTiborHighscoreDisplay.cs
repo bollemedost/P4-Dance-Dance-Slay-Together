@@ -1,21 +1,22 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class MediumTiborHighscoreDisplay : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI highscoreListText;
+    public Text scoreText;
+    public Text highscoreListText;
 
     void Start()
     {
         int lastScore = PlayerPrefs.GetInt("LastScore", 0);
         string lastName = PlayerPrefs.GetString("LastTeamName", "YOU");
 
-        scoreText.text = "Your Score: " + lastScore;
+        scoreText.text = "" + lastScore;
 
         var list = MediumTiborHighscoreManager.LoadHighscores();
 
-        string formatted = "Top Highscores:\n";
+        string formatted = "\n";
         for (int i = 0; i < list.entries.Count; i++)
         {
             var entry = list.entries[i];
