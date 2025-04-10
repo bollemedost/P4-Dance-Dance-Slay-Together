@@ -14080,7 +14080,7 @@ MonoBehaviour:
   volumeKeepSlaying: 2
   volumePerfect: 0.2
   volumeMissSound: 0.1
-  volumeBoom: 10
+  volumeBoom: 0.2
   volumeGoodJob: 2
   volumeSwooshBling: 10
   volumeYouGotThis: 2
@@ -14095,7 +14095,7 @@ MonoBehaviour:
   soundYouGotThis: {fileID: 8300000, guid: 65b9bcd31e21d48a4a626a1b4d4a39a9, type: 3}
   soundStart: {fileID: 8300000, guid: 377f1ebf75c794cff8930f158f100389, type: 3}
   soundMagicFairy: {fileID: 8300000, guid: abc5fc6c7ecdb490f8d099606d7b22b4, type: 3}
-  boomCooldown: 0.3
+  boomCooldown: 0.5
 --- !u!4 &1017244349
 Transform:
   m_ObjectHideFlags: 0
