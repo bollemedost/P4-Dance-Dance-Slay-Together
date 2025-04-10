@@ -13984,7 +13984,7 @@ MonoBehaviour:
   scorePerPerfectNote: 150
   currentMultiplier: 1
   multiplierTracker: 0
-  multiplierThresholds: 050000000a0000000f000000
+  multiplierThresholds: 0f0000001e0000002d000000
   scoreText: {fileID: 983333074}
   multiplierText: {fileID: 446584298}
   beatLoader: {fileID: 186321414}
@@ -14002,7 +14002,7 @@ MonoBehaviour:
   - {fileID: 304374856}
   - {fileID: 569108950}
   - {fileID: 1516004995}
-  starThresholds: 502d0000045b0000b888000008b60000bce30000
+  starThresholds: 204e0000409c000060ea000080380100a0860100
   starOutlines:
   - {fileID: 354662269}
   - {fileID: 461824796}
