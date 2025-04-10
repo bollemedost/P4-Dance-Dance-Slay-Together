@@ -96,11 +96,26 @@ public class GameManager : MonoBehaviour
         if (startPlaying && !theMusic.isPlaying && theMusic.time > 1f)
         {
             string lastName = PlayerPrefs.GetString("LastTeamName", "YOU");
-            TiborHighscoreManager.SaveHighscore(lastName, currentScore);
             PlayerPrefs.SetInt("LastScore", currentScore);
 
-            UnityEngine.SceneManagement.SceneManager.LoadScene("TiborHighScore");
+            string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+            if (currentScene == "EasyAioli")
+            {
+                EasyTiborHighscoreManager.SaveHighscore(lastName, currentScore);
+                UnityEngine.SceneManagement.SceneManager.LoadScene("EasyTiborHighscore");
+            }
+            else if (currentScene == "MediumAioli")
+            {
+                MediumTiborHighscoreManager.SaveHighscore(lastName, currentScore);
+                UnityEngine.SceneManagement.SceneManager.LoadScene("MediumTiborHighscore");
+            }
+            else
+            {
+                TiborHighscoreManager.SaveHighscore(lastName, currentScore);
+                UnityEngine.SceneManagement.SceneManager.LoadScene("TiborHighscore");
+            }
         }
+
 
 
     }
