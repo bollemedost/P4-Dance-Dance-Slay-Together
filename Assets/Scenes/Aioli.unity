@@ -25911,6 +25911,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 207701061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1801528596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1801528598}
+  - component: {fileID: 1801528597}
+  m_Layer: 0
+  m_Name: ResetLeaderboard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1801528597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801528596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8030592e7124e994c907eec5a4aa39c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leaderboardToReset: 0
+  resetNow: 0
+--- !u!4 &1801528598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801528596}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1097.4528, y: 503.6482, z: 4.7903376}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1848117865
 GameObject:
   m_ObjectHideFlags: 0
@@ -28032,3 +28078,4 @@ SceneRoots:
   - {fileID: 138998459}
   - {fileID: 1998695123}
   - {fileID: 717765943}
+  - {fileID: 1801528598}
