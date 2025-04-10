@@ -109,6 +109,7 @@ public class ArrowDetectorAioli : MonoBehaviour
             GameManager.instance.NoteMissed(gameObject);
 
             GameObject missInstance = Instantiate(missText, transform.position, Quaternion.identity);
+            missInstance.tag = "MissFeedback"; // Added tag for cleanup
             if (missInstance != null)
             {
                 Destroy(missInstance, feedbackDuration);
@@ -138,6 +139,15 @@ public class ArrowDetectorAioli : MonoBehaviour
         }
     }
 
-
+    void OnDestroy()
+    {
+        GameObject[] leftovers = GameObject.FindGameObjectsWithTag("MissFeedback");
+        foreach (var obj in leftovers)
+        {
+            if (obj != null)
+            {
+                DestroyImmediate(obj);
+            }
+        }
+    }
 }
-

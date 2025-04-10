@@ -91,24 +91,17 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (!startPlaying)
-        {
-            if (Input.anyKeyDown)
-            {
-                startPlaying = true;
-                gameStartTime = Time.timeSinceLevelLoad;
-                StartCoroutine(SpawnArrowsOnBeat());
-                StartCoroutine(StartMusicWithDelay());
-            }
-        }
 
         // If music has finished playing
         if (startPlaying && !theMusic.isPlaying && theMusic.time > 1f)
         {
-            TiborHighscoreManager.SaveHighscore(currentScore);
-            PlayerPrefs.SetInt("LastScore", currentScore); // Save current score for the highscore scene
+            string lastName = PlayerPrefs.GetString("LastTeamName", "YOU");
+            TiborHighscoreManager.SaveHighscore(lastName, currentScore);
+            PlayerPrefs.SetInt("LastScore", currentScore);
+
             UnityEngine.SceneManagement.SceneManager.LoadScene("TiborHighScore");
         }
+
 
     }
 
@@ -332,5 +325,15 @@ public class GameManager : MonoBehaviour
             if (particles[index] != null)
                 particles[index].Play();
         }
+    }
+    public void SetGameStartTime()
+    {
+        gameStartTime = Time.timeSinceLevelLoad;
+    }
+
+    public void BeginGameplay()
+    {
+        StartCoroutine(SpawnArrowsOnBeat());
+        StartCoroutine(StartMusicWithDelay());
     }
 }

@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using System.Collections.Generic;
 
 public class TiborHighscoreDisplay : MonoBehaviour
 {
@@ -10,14 +9,17 @@ public class TiborHighscoreDisplay : MonoBehaviour
     void Start()
     {
         int lastScore = PlayerPrefs.GetInt("LastScore", 0);
+        string lastName = PlayerPrefs.GetString("LastTeamName", "YOU");
+
         scoreText.text = "Your Score: " + lastScore;
 
-        List<int> highscores = TiborHighscoreManager.LoadHighscores();
+        HighscoreList highscores = TiborHighscoreManager.LoadHighscoreList();
 
         string formatted = "Top Highscores:\n";
-        for (int i = 0; i < highscores.Count; i++)
+        for (int i = 0; i < highscores.entries.Count; i++)
         {
-            formatted += $"{i + 1}. {highscores[i]}\n";
+            var entry = highscores.entries[i];
+            formatted += $"{i + 1}. {entry.name} - {entry.score}\n";
         }
 
         highscoreListText.text = formatted;

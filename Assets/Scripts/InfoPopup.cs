@@ -1,10 +1,13 @@
 using UnityEngine;
+using TMPro;
 
 public class InfoPopup : MonoBehaviour
 {
     public GameObject popupPanel;
     public RectTransform imageLeft;
     public RectTransform imageRight;
+    public TMP_InputField teamNameInput;
+    public GameManager gameManager;
 
     public float delayBeforePopup = 1f;
     public float displayDuration = 3f;
@@ -17,17 +20,16 @@ public class InfoPopup : MonoBehaviour
 
     private void Start()
     {
-        // Store final target positions
         imageLeftTargetPos = imageLeft.anchoredPosition;
         imageRightTargetPos = imageRight.anchoredPosition;
 
-        // Set initial positions off-screen
         imageLeftStartPos = imageLeftTargetPos + new Vector2(-1000, 0);
         imageRightStartPos = imageRightTargetPos + new Vector2(1000, 0);
 
         imageLeft.anchoredPosition = imageLeftStartPos;
         imageRight.anchoredPosition = imageRightStartPos;
 
+        gameManager.startPlaying = false;
         StartCoroutine(ShowPopupWithAnimation());
     }
 
@@ -37,17 +39,8 @@ public class InfoPopup : MonoBehaviour
         yield return new WaitForSeconds(delayBeforePopup);
 
         popupPanel.SetActive(true);
-
-        // Slide in
         yield return StartCoroutine(SlideImages(imageLeftStartPos, imageLeftTargetPos, imageRightStartPos, imageRightTargetPos));
-
-        // Wait while showing
         yield return new WaitForSeconds(displayDuration);
-
-        // Slide out
-        yield return StartCoroutine(SlideImages(imageLeftTargetPos, imageLeftStartPos, imageRightTargetPos, imageRightStartPos));
-
-        popupPanel.SetActive(false);
     }
 
     private System.Collections.IEnumerator SlideImages(Vector2 leftFrom, Vector2 leftTo, Vector2 rightFrom, Vector2 rightTo)
@@ -66,9 +59,32 @@ public class InfoPopup : MonoBehaviour
         }
     }
 
-    // Easing function for smooth animation
     private float EaseInOutQuad(float t)
     {
         return t < 0.5f ? 2f * t * t : -1f + (4f - 2f * t) * t;
+    }
+
+    public void StartGame()
+    {
+        if (teamNameInput == null || gameManager == null)
+        {
+            Debug.LogError("Missing references! Assign teamNameInput and gameManager in the Inspector.");
+            return;
+        }
+
+        string teamName = teamNameInput.text.Trim();
+
+        if (string.IsNullOrEmpty(teamName))
+        {
+            Debug.LogWarning("Please enter a team name before starting the game.");
+            return;
+        }
+
+        PlayerPrefs.SetString("LastTeamName", teamName);
+
+        popupPanel.SetActive(false);
+        gameManager.startPlaying = true;
+        gameManager.SetGameStartTime();
+        gameManager.BeginGameplay();
     }
 }

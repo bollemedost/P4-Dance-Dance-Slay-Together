@@ -8,6 +8,7 @@ TagManager:
   - FallingArrow
   - Activator1
   - Activator2
+  - MissFeedback
   layers:
   - Default
   - TransparentFX

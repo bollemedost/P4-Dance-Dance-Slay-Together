@@ -1,40 +1,57 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class HighscoreEntry
+{
+    public string name;
+    public int score;
+}
+
+[System.Serializable]
+public class HighscoreList
+{
+    public List<HighscoreEntry> entries = new List<HighscoreEntry>();
+}
+
 public static class TiborHighscoreManager
 {
     private const string HighscoresKey = "AllHighscores";
     private const int MaxHighscores = 10;
 
-    public static void SaveHighscore(int score)
+    public static void SaveHighscore(string name, int score)
     {
-        List<int> highscores = LoadHighscores();
-        highscores.Add(score);
-        highscores.Sort((a, b) => b.CompareTo(a)); // Highest first
+        HighscoreList list = LoadHighscoreList();
 
-        if (highscores.Count > MaxHighscores)
-            highscores.RemoveAt(highscores.Count - 1); // Keep top 10
+        list.entries.Add(new HighscoreEntry { name = name, score = score });
+        list.entries.Sort((a, b) => b.score.CompareTo(a.score)); // Highest first
 
-        string saveData = string.Join(",", highscores);
-        PlayerPrefs.SetString(HighscoresKey, saveData);
+        if (list.entries.Count > MaxHighscores)
+            list.entries.RemoveRange(MaxHighscores, list.entries.Count - MaxHighscores);
+
+        string json = JsonUtility.ToJson(list);
+        PlayerPrefs.SetString(HighscoresKey, json);
         PlayerPrefs.Save();
     }
 
-    public static List<int> LoadHighscores()
+    public static HighscoreList LoadHighscoreList()
     {
-        string data = PlayerPrefs.GetString(HighscoresKey, "");
-        List<int> highscores = new List<int>();
+        string json = PlayerPrefs.GetString(HighscoresKey, "");
 
-        if (!string.IsNullOrEmpty(data))
+        if (!string.IsNullOrEmpty(json))
         {
-            string[] parts = data.Split(',');
-            foreach (string part in parts)
+            try
             {
-                if (int.TryParse(part, out int score))
-                    highscores.Add(score);
+                return JsonUtility.FromJson<HighscoreList>(json);
+            }
+            catch
+            {
+                Debug.LogWarning("Failed to parse highscores JSON, resetting...");
+                PlayerPrefs.DeleteKey(HighscoresKey);
+                PlayerPrefs.Save();
             }
         }
 
-        return highscores;
+        return new HighscoreList();
     }
 }
