@@ -1,21 +1,22 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class TiborHighscoreDisplay : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI highscoreListText;
+    public Text scoreText;
+    public Text highscoreListText;
 
     void Start()
     {
         int lastScore = PlayerPrefs.GetInt("LastScore", 0);
         string lastName = PlayerPrefs.GetString("LastTeamName", "YOU");
 
-        scoreText.text = "Your Score: " + lastScore;
+        scoreText.text = "" + lastScore;
 
         HighscoreList highscores = TiborHighscoreManager.LoadHighscoreList();
 
-        string formatted = "Top Highscores:\n";
+        string formatted = "\n";
         for (int i = 0; i < highscores.entries.Count; i++)
         {
             var entry = highscores.entries[i];
