@@ -153,7 +153,7 @@ public class GameManager : MonoBehaviour
             // Skip spawning if arrow would appear too early (e.g., within first second of game)
             if (spawnTime < 1.0f)
             {
-                Debug.Log($"⏩ Skipped beat at {beatTime}s (too early)");
+                Debug.Log($" Skipped beat at {beatTime}s (too early)");
                 nextBeatIndex++;
                 continue;
             }
@@ -352,3 +352,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StartMusicWithDelay());
     }
 }
+
+
+
+//chatgpt

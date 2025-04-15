@@ -32,3 +32,7 @@ public class LeaderboardResetEditor : MonoBehaviour
         }
     }
 }
+
+
+
+//References: Used Chatgpt as a reference for the code.

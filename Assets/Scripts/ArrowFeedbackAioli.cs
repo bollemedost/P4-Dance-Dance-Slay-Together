@@ -14,7 +14,7 @@ public class ArrowFeedbackAioli : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
         {
-            Debug.LogError("❌ SpriteRenderer is missing on " + gameObject.name);
+            Debug.LogError("SpriteRenderer is missing on " + gameObject.name);
         }
     }
 
@@ -64,7 +64,7 @@ public class ArrowFeedbackAioli : MonoBehaviour
     {
         if (spriteRenderer == null)
         {
-            Debug.LogError("❌ SpriteRenderer is NULL when trying to change sprite!");
+            Debug.LogError("SpriteRenderer is NULL when trying to change sprite!");
             return;
         }
 

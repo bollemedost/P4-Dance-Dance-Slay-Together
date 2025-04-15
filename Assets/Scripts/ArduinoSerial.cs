@@ -41,14 +41,14 @@ public class ArduinoSerial : MonoBehaviour
             serialPort = new SerialPort(portName, 9600);
             serialPort.Open();
             serialPort.ReadTimeout = 100;
-            Debug.Log($"✅ Connected to Arduino on port: {portName}");
+            Debug.Log($"Connected to Arduino on port: {portName}");
 
             serialThread = new Thread(ReadSerial);
             serialThread.Start();
         }
         catch (Exception e)
         {
-            Debug.LogError("❌ Failed to connect: " + e.Message);
+            Debug.LogError("Failed to connect: " + e.Message);
         }
     }
 
@@ -106,3 +106,6 @@ public class ArduinoSerial : MonoBehaviour
             serialPort.Close();
     }
 }
+
+
+//References: Used chatgpt as a reference for the code.

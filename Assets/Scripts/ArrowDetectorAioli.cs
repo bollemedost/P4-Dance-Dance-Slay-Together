@@ -6,7 +6,7 @@ public class ArrowDetectorAioli : MonoBehaviour
 {
     public bool canBePressed;
     public KeyCode keyToPress;
-    public int playerNumber; // NEW: 1 for Player 1, 2 for Player 2
+    public int playerNumber; // 1 for Player 1, 2 for Player 2
 
     // Feedback Prefabs
     public GameObject normalHitText, goodHitText, perfectHitText, missText;
@@ -66,19 +66,19 @@ public class ArrowDetectorAioli : MonoBehaviour
 
             if (hitAccuracy > 0.25f)
             {
-                Debug.Log("✅ Normal Hit!");
+                Debug.Log("Normal Hit!");
                 GameManager.instance.NormalHit();
                 feedbackInstance = Instantiate(normalHitText, transform.position, Quaternion.identity);
             }
             else if (hitAccuracy > 0.15f)
             {
-                Debug.Log("🌟 Good Hit!");
+                Debug.Log("Good Hit!");
                 GameManager.instance.GoodHit();
                 feedbackInstance = Instantiate(goodHitText, transform.position, Quaternion.identity);
             }
             else
             {
-                Debug.Log("💯 Perfect Hit!");
+                Debug.Log("Perfect Hit!");
                 GameManager.instance.PerfectHit();
                 SoundManager.Instance.PlayPerfectSound();
                 feedbackInstance = Instantiate(perfectHitText, transform.position, Quaternion.identity);
@@ -104,7 +104,7 @@ public class ArrowDetectorAioli : MonoBehaviour
         if (((other.CompareTag("Activator1") && playerNumber == 1) || (other.CompareTag("Activator2") && playerNumber == 2)) && gameObject.activeSelf)
         {
             canBePressed = false;
-            Debug.Log("❌ Missed Note!");
+            Debug.Log("Missed Note!");
             SoundManager.Instance.PlayMissSound();
             GameManager.instance.NoteMissed(gameObject);
 

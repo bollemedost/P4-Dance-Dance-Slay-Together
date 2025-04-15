@@ -25,4 +25,13 @@ public class MediumTiborHighscoreDisplay : MonoBehaviour
 
         highscoreListText.text = formatted;
     }
+
+
+
 }
+
+
+
+//References: Used https://www.youtube.com/watch?v=EJIDPo-nW-Q as a reference for the code.
+//References: Used https://www.youtube.com/watch?v=iAbaqGYdnyI as a reference for the code.
+//References: Used Chatgpt as a reference for the code.

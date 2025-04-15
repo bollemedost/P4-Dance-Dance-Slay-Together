@@ -20,7 +20,7 @@ public class FallingArrow : MonoBehaviour
 
         if (transform.position.y < -6f) // Adjust based on your scene
         {
-            Debug.Log("⚠ Arrow destroyed: " + gameObject.name);
+            Debug.Log("Arrow destroyed: " + gameObject.name);
             Destroy(gameObject);
         }
     }

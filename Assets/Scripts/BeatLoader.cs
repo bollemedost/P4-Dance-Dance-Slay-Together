@@ -27,7 +27,7 @@ public class BeatLoader : MonoBehaviour
         }
     }
 
-    // 🔹 New Method: Allows GameManager to access beat timings
+    //  New Method: Allows GameManager to access beat timings
     public List<float> GetBeatTimings()
     {
         return beatTimings;
@@ -39,3 +39,7 @@ public class BeatData
 {
     public List<float> beats;
 }
+
+
+
+//References: Used Chatgpt as a reference for the code.
