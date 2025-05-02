@@ -155,3 +155,4 @@ public class ArrowDetectorAioli : MonoBehaviour
         }
     }
 }
+//References: Used chatgpt as a reference for the code.

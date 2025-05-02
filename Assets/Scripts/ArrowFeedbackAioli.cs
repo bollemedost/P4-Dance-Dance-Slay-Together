@@ -81,6 +81,4 @@ public class ArrowFeedbackAioli : MonoBehaviour
     }
 }
 
-
-
 //References: Used https://www.youtube.com/@gamesplusjames as a reference for the code.

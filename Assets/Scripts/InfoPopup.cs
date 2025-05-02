@@ -88,3 +88,4 @@ public class InfoPopup : MonoBehaviour
         gameManager.BeginGameplay();
     }
 }
+//References: Used chatgpt as a reference for the code.

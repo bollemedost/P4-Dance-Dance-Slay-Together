@@ -43,3 +43,4 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene(backToMainMenu); // Load EasyScene when Easy button is clicked
     }
 }
+//References: Used chatgpt as a reference for the code.

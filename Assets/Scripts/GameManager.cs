@@ -353,6 +353,4 @@ public class GameManager : MonoBehaviour
     }
 }
 
-
-
-//chatgpt
+//References: Used chatgpt as a reference for the code.

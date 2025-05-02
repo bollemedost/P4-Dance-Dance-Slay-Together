@@ -186,3 +186,4 @@ public class SoundManager : MonoBehaviour
         audioSource.PlayOneShot(chosen.clip, chosen.volume);
     }
 }
+//References: Used chatgpt as a reference for the code.

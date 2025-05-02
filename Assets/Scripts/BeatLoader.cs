@@ -40,6 +40,4 @@ public class BeatData
     public List<float> beats;
 }
 
-
-
 //References: Used Chatgpt as a reference for the code.

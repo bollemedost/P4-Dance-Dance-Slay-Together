@@ -101,3 +101,4 @@ public class ArrowSpawner : MonoBehaviour
         public float[] beats;
     }
 }
+//References: Used chatgpt as a reference for the code.

@@ -39,3 +39,4 @@ public class PopupUISlay : MonoBehaviour
         popupCanvasGroup.alpha = 1f;
     }
 }
+//References: Used chatgpt as a reference for the code.

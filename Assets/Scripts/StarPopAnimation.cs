@@ -45,3 +45,4 @@ public class StarPopAnimation : MonoBehaviour
         transform.localScale = originalScale;
     }
 }
+//References: Used chatgpt as a reference for the code.
